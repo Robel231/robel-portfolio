@@ -1,5 +1,6 @@
 import React from 'react';
 import type { ExperienceItem } from '../types';
+import { motion } from 'framer-motion';
 import { BriefcaseIcon } from './icons/BriefcaseIcon';
 
 const experienceData: ExperienceItem[] = [
@@ -41,7 +42,14 @@ const Experience: React.FC = () => {
       <div className="relative max-w-2xl mx-auto">
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-[#99582a]" aria-hidden="true"></div>
         {experienceData.map((item, index) => (
-          <div key={index} className="mb-10 flex items-center w-full">
+          <motion.div
+            key={index}
+            className="mb-10 flex items-center w-full"
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.5 }}
+          >
             <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
               <div className="bg-[#6f1d1b] p-6 rounded-lg border border-[#99582a] shadow-lg">
                 <h3 className="text-xl font-semibold text-[#bb9457]">{item.role}</h3>
@@ -56,7 +64,7 @@ const Experience: React.FC = () => {
               <BriefcaseIcon className="w-4 h-4 text-[#bb9457]" />
             </div>
             <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}></div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
