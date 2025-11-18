@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import type { SkillCategory } from '../types';
 import { CodeIcon } from './icons/CodeIcon';
 import { BrainCircuitIcon } from './icons/BrainCircuitIcon';
@@ -66,13 +67,50 @@ const SectionIcon = ({ title }: { title: string }) => {
     }
 };
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut'
+    }
+  },
+};
+
+
 const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-20 md:py-32">
-      <h2 className="text-3xl font-bold text-[#ffe6a7] text-center mb-12">Technical Skills</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <motion.h2
+        className="text-3xl font-bold text-[#ffe6a7] text-center mb-12"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.8 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        Technical Skills
+      </motion.h2>
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {skillData.map((category) => (
-          <div key={category.title} className="bg-[#6f1d1b]/50 p-6 rounded-lg border border-[#99582a]">
+          <motion.div key={category.title} className="bg-[#6f1d1b]/50 p-6 rounded-lg border border-[#99582a]" variants={itemVariants}>
             <div className="flex items-center gap-4 mb-4">
               <SectionIcon title={category.title} />
               <h3 className="text-xl font-semibold text-[#ffe6a7]">{category.title}</h3>
@@ -84,9 +122,9 @@ const Skills: React.FC = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

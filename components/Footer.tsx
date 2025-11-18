@@ -1,11 +1,18 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   return (
     <footer className="border-t border-[#6f1d1b]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-[#bb9457]/80">
+      <motion.div
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-[#bb9457]/80"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 1.0, ease: 'easeOut' }}
+      >
         <p>&copy; {new Date().getFullYear()} Robel Shemeles Alemayhu. All rights reserved.</p>
-      </div>
+      </motion.div>
     </footer>
   );
 };
