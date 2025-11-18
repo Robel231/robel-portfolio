@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to fix type errors.
+import { motion, Variants } from 'framer-motion';
 import type { SkillCategory } from '../types';
 import { CodeIcon } from './icons/CodeIcon';
 import { BrainCircuitIcon } from './icons/BrainCircuitIcon';
@@ -70,7 +71,7 @@ const SectionIcon = ({ title }: { title: string }) => {
     }
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -80,7 +81,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,

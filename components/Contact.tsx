@@ -1,11 +1,13 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to fix type errors.
+import { motion, Variants } from 'framer-motion';
 import { MailIcon } from './icons/MailIcon';
 import { PhoneIcon } from './icons/PhoneIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 import { GitHubIcon } from './icons/GitHubIcon';
+import { DocumentTextIcon } from './icons/DocumentTextIcon';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -16,7 +18,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 };
@@ -36,6 +38,22 @@ const Contact: React.FC = () => {
       <motion.p variants={itemVariants} className="text-[#bb9457] mb-8 max-w-xl mx-auto">
         I'm currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind or just want to connect.
       </motion.p>
+      
+      <motion.div
+        variants={itemVariants}
+        className="mb-8"
+      >
+        <a
+          href="https://drive.google.com/file/d/1vQgJ5ahm0qzgrM1bv6W08zLnJZtS3mvz/view?usp=drive_link"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-[#99582a] text-[#ffe6a7] font-semibold px-6 py-3 rounded-lg hover:bg-[#bb9457] hover:text-[#432818] transition-all"
+        >
+          <DocumentTextIcon className="w-5 h-5" />
+          My Resume
+        </a>
+      </motion.div>
+      
       <motion.div variants={itemVariants} className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
         <a href="mailto:robelshemeles4@gmail.com" className="flex items-center gap-2 text-[#ffe6a7] hover:text-[#bb9457] transition-colors text-lg">
           <MailIcon />

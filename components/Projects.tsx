@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to fix type errors.
+import { motion, Variants } from 'framer-motion';
 import type { Project } from '../types';
 import { ExternalLinkIcon } from './icons/ExternalLinkIcon';
 import { GitHubIcon } from './icons/GitHubIcon';
@@ -67,7 +68,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
 
 const Projects: React.FC = () => {
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: {},
         visible: {
           transition: {
@@ -76,7 +77,7 @@ const Projects: React.FC = () => {
         },
       };
       
-      const itemVariants = {
+      const itemVariants: Variants = {
         hidden: { opacity: 0, scale: 0.95, y: 30 },
         visible: {
           opacity: 1,

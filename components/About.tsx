@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion to fix type errors.
+import { motion, Variants } from 'framer-motion';
 import { GraduationCapIcon } from './icons/GraduationCapIcon';
 import { SparklesIcon } from './icons/SparklesIcon';
 import { LanguagesIcon } from './icons/LanguagesIcon';
@@ -7,7 +8,7 @@ import { LanguagesIcon } from './icons/LanguagesIcon';
 const About: React.FC = () => {
   const profileImage = 'https://media.licdn.com/dms/image/v2/D4D03AQETH4rc0gTRaA/profile-displayphoto-scale_200_200/B4DZqCxOaJJMAY-/0/1763130534998?e=1764806400&v=beta&t=lzsOJnZT2LYoj23omdBh9LTh-gB_65yc8YTUnJfl0OQ';
 
-  const subsectionVariants = {
+  const subsectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
