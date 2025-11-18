@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
         </a>
       </motion.div>
       
-      <motion.div variants={itemVariants} className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+      <motion.div variants={itemVariants} className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-8">
         <a href="mailto:robelshemeles4@gmail.com" className="flex items-center gap-2 text-[#ffe6a7] hover:text-[#bb9457] transition-colors text-lg">
           <MailIcon />
           robelshemeles4@gmail.com

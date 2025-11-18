@@ -50,7 +50,7 @@ const TechOrbit: React.FC = () => {
               }}
             >
               <div className="orbit-icon-content">
-                <Icon className="w-9 h-9" />
+                <Icon className="w-8 h-8 md:w-9 md:h-9" />
                 <span className="orbit-icon-name">{name}</span>
               </div>
             </div>

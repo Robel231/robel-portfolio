@@ -14,7 +14,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 md:py-32 overflow-hidden">
+    <section id="about" className="py-24 md:py-32 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
         <motion.div
           className="lg:col-span-2 flex justify-center"

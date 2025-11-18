@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,14 +19,20 @@ const Header: React.FC = () => {
     { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },
   ];
+  
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#432818]/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-[#432818]/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#home" className="text-xl font-bold text-[#bb9457]">
             Robel Shemeles
           </a>
+          
+          {/* Desktop Nav */}
           <div className="hidden md:flex space-x-6">
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="text-[#ffe6a7] hover:text-[#bb9457] transition-colors">
@@ -33,7 +40,37 @@ const Header: React.FC = () => {
               </a>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-[#ffe6a7] focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden pb-4">
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <a key={link.href} href={link.href} onClick={handleLinkClick} className="text-[#ffe6a7] hover:text-[#bb9457] transition-colors text-center py-2 rounded-md">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );

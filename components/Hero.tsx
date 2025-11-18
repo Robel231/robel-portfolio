@@ -30,7 +30,7 @@ const itemVariants: Variants = {
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center text-center -mt-16">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center text-center pt-16 -mt-16">
       <motion.div
         className="max-w-4xl mx-auto px-4 flex flex-col items-center"
         variants={containerVariants}
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
         </motion.p>
         <motion.div
           variants={itemVariants}
-          className="mt-8 flex justify-center gap-4"
+          className="mt-8 flex flex-col sm:flex-row justify-center gap-4 w-full max-w-xs sm:max-w-none"
         >
           <a href="#contact" className="inline-block bg-[#99582a] text-[#ffe6a7] font-semibold px-6 py-3 rounded-lg hover:bg-[#bb9457] hover:text-[#432818] transition-all">
             Get In Touch
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
             href="https://github.com/Robel231"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#6f1d1b] text-[#ffe6a7] font-semibold px-6 py-3 rounded-lg hover:bg-[#99582a] transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-[#6f1d1b] text-[#ffe6a7] font-semibold px-6 py-3 rounded-lg hover:bg-[#99582a] transition-colors"
           >
             <GitHubIcon />
             GitHub
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
             href="https://www.linkedin.com/in/robel-shemeles-b80a31377"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#6f1d1b] text-[#ffe6a7] font-semibold px-6 py-3 rounded-lg hover:bg-[#99582a] transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-[#6f1d1b] text-[#ffe6a7] font-semibold px-6 py-3 rounded-lg hover:bg-[#99582a] transition-colors"
           >
             <LinkedInIcon />
             LinkedIn
@@ -82,6 +82,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.8, type: 'spring' }}
+          className="w-full"
         >
           <TechOrbit />
         </motion.div>

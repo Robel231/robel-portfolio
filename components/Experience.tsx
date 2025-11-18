@@ -39,32 +39,30 @@ const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-20 md:py-32">
       <h2 className="text-3xl font-bold text-[#ffe6a7] text-center mb-12">Professional Experience</h2>
-      <div className="relative max-w-2xl mx-auto">
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-[#99582a]" aria-hidden="true"></div>
+      <div className="relative max-w-4xl mx-auto px-4">
+        <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-[#99582a]" aria-hidden="true"></div>
         {experienceData.map((item, index) => (
-          <motion.div
-            key={index}
-            className="mb-10 flex items-center w-full"
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.8 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-              <div className="bg-[#6f1d1b] p-6 rounded-lg border border-[#99582a] shadow-lg">
+          <div key={index} className="relative mb-12">
+            <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 mt-2 w-8 h-8 bg-[#6f1d1b] border-2 border-[#bb9457] rounded-full flex items-center justify-center">
+                <BriefcaseIcon className="w-4 h-4 text-[#bb9457]" />
+            </div>
+            <motion.div
+              className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:w-1/2 md:pr-8' : 'md:w-1/2 md:ml-auto md:pl-8'}`}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className={`bg-[#6f1d1b] p-6 rounded-lg border border-[#99582a] shadow-lg ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                 <h3 className="text-xl font-semibold text-[#bb9457]">{item.role}</h3>
                 <p className="text-[#bb9457] font-medium mb-1">{item.company}</p>
                 <p className="text-sm text-[#bb9457]/80 mb-3">{item.period}</p>
-                <ul className="text-sm text-[#bb9457] space-y-2 list-disc list-inside text-left">
+                <ul className="text-sm text-left text-[#bb9457] space-y-2 list-disc list-inside">
                   {item.description.map((desc, i) => <li key={i}>{desc}</li>)}
                 </ul>
               </div>
-            </div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#6f1d1b] border-2 border-[#bb9457] rounded-full flex items-center justify-center">
-              <BriefcaseIcon className="w-4 h-4 text-[#bb9457]" />
-            </div>
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}></div>
-          </motion.div>
+            </motion.div>
+          </div>
         ))}
       </div>
     </section>
