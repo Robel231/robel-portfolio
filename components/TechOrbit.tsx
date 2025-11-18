@@ -2,7 +2,7 @@ import React from 'react';
 import {
   ReactIcon, NextjsIcon, JavaScriptIcon, PythonIcon, FastApiIcon, NodejsIcon,
   TailwindCssIcon, DockerIcon, PostgresqlIcon, VercelIcon, OpenAiIcon,
-  GitIcon, SupabaseIcon, FirebaseIcon, N8nIcon, LinuxIcon
+  GitIcon, SupabaseIcon, FirebaseIcon, N8nIcon, LinuxIcon, GoogleCloudIcon, VertexAiIcon
 } from './icons/TechIcons';
 
 const technologies = [
@@ -22,6 +22,8 @@ const technologies = [
   { Icon: FirebaseIcon, name: 'Firebase' },
   { Icon: N8nIcon, name: 'N8N' },
   { Icon: LinuxIcon, name: 'Linux' },
+  { Icon: GoogleCloudIcon, name: 'Google Cloud' },
+  { Icon: VertexAiIcon, name: 'Vertex AI' },
 ];
 
 const TechOrbit: React.FC = () => {
@@ -48,7 +50,7 @@ const TechOrbit: React.FC = () => {
               }}
             >
               <div className="orbit-icon-content">
-                <Icon className="w-10 h-10" />
+                <Icon className="w-9 h-9" />
                 <span className="orbit-icon-name">{name}</span>
               </div>
             </div>

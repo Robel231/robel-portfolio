@@ -111,3 +111,16 @@ export const LinuxIcon: React.FC<IconProps> = (props) => (
     <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.5 15.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm1.5-5.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm-6 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm3-4c-3.3 0-6 2.7-6 6h12c0-3.3-2.7-6-6-6z" fill="currentColor"/>
   </svg>
 );
+
+export const GoogleCloudIcon: React.FC<IconProps> = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M18.5 14.5C18.5 16.71 16.71 18.5 14.5 18.5H9.5C6.46 18.5 4 16.04 4 13C4 9.96 6.46 7.5 9.5 7.5C10.96 7.5 12.29 8.15 13.2 9.13C13.62 7.29 15.17 6 17 6C18.93 6 20.5 7.57 20.5 9.5C20.5 10.53 20.04 11.45 19.35 12.15C19.72 12.82 19.98 13.63 19.98 14.5H18.5z" fill="currentColor"/>
+  </svg>
+);
+
+export const VertexAiIcon: React.FC<IconProps> = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M12 3.14L3.43 19.5h17.14L12 3.14zM12 14l-4-4h8l-4 4z" fill="currentColor"/>
+    <path d="M12 14l4 4H8l4-4z" opacity="0.7" fill="currentColor"/>
+  </svg>
+);
