@@ -23,15 +23,15 @@ export const PythonIcon: React.FC<IconProps> = (props) => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path d="M14.25 12C14.25 10.2763 15.7763 8.75 17.5 8.75H20.75V7.5C20.75 5.54467 19.2053 4 17.25 4H12.6875C12.3331 4 12.001 4.21443 11.8318 4.52678L9.75 8.75H12C13.2426 8.75 14.25 9.75736 14.25 11V12Z" fill="currentColor"/>
         <path d="M9.75 12C9.75 13.7237 8.22365 15.25 6.5 15.25H3.25V16.5C3.25 18.4553 4.79467 20 6.75 20H11.3125C11.6669 20 11.999 19.7856 12.1682 19.4732L14.25 15.25H12C10.7574 15.25 9.75 14.2426 9.75 13V12Z" fill="currentColor"/>
-        <circle cx="7.5" cy="11.5" r="1.5" fill="#FFE6A7"/>
-        <circle cx="16.5" cy="12.5" r="1.5" fill="#FFE6A7"/>
+        <circle cx="7.5" cy="11.5" r="1.5" fill="currentColor"/>
+        <circle cx="16.5" cy="12.5" r="1.5" fill="currentColor"/>
     </svg>
 );
 
 export const FastApiIcon: React.FC<IconProps> = (props) => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/>
-        <path d="M12,4c-4.41,0-8,3.59-8,8s3.59,8,8,8s8-3.59,8-8S16.41,4,12,4z M13.5,13.59l-1.5,1.5l-3.09-3.09l3.09-3.09l1.5,1.5 L12,11.59L13.5,13.59z" fill="#432818"/>
+        <path d="M12,4c-4.41,0-8,3.59-8,8s3.59,8,8,8s8-3.59,8-8S16.41,4,12,4z M13.5,13.59l-1.5,1.5l-3.09-3.09l3.09-3.09l1.5,1.5 L12,11.59L13.5,13.59z" fill="#02010a"/>
         <path d="M13.5 13.59l-1.5 1.5-3.09-3.09 3.09-3.09 1.5 1.5L12 11.59l1.5 1.5z" fill="currentColor"/>
     </svg>
 );
@@ -75,7 +75,7 @@ export const OpenAiIcon: React.FC<IconProps> = (props) => (
 
 export const JavaScriptIcon: React.FC<IconProps> = (props) => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M3 3h18v18H3V3z" fill="#432818"/>
+    <path d="M3 3h18v18H3V3z" fill="#04052e"/>
     <path d="M17.5 18h-2.2l-1.5-3.2c-.3-.7-.5-1.2-.6-1.5h-.1c-.1.3-.2.8-.4 1.4L11.2 18H9L12.9 9h2.1l3.5 9zM8.5 18H6V9h2.5v9z" fill="currentColor"/>
   </svg>
 );
