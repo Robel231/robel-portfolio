@@ -38,13 +38,13 @@ const experienceData: ExperienceItem[] = [
 const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-20 md:py-32">
-      <h2 className="text-3xl font-bold text-[#e2e8f0] text-center mb-12">Professional Experience</h2>
+      <h2 className="text-3xl font-bold text-slate-900 dark:text-[#e2e8f0] text-center mb-12">Professional Experience</h2>
       <div className="relative max-w-4xl mx-auto px-4">
-        <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-[#140152]" aria-hidden="true"></div>
+        <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-slate-300 dark:bg-[#140152]" aria-hidden="true"></div>
         {experienceData.map((item, index) => (
           <div key={index} className="relative mb-12">
-            <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 mt-2 w-8 h-8 bg-[#04052e] border-2 border-blue-400 rounded-full flex items-center justify-center">
-                <BriefcaseIcon className="w-4 h-4 text-blue-400" />
+            <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 mt-2 w-8 h-8 bg-white dark:bg-[#04052e] border-2 border-blue-600 dark:border-blue-400 rounded-full flex items-center justify-center">
+              <BriefcaseIcon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             </div>
             <motion.div
               className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:w-1/2 md:pr-8' : 'md:w-1/2 md:ml-auto md:pl-8'}`}
@@ -53,11 +53,11 @@ const Experience: React.FC = () => {
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.6 }}
             >
-              <div className={`bg-[#04052e] p-6 rounded-lg border border-[#140152] shadow-lg shadow-blue-900/10 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                <h3 className="text-xl font-semibold text-blue-300">{item.role}</h3>
-                <p className="text-slate-300 font-medium mb-1">{item.company}</p>
+              <div className={`bg-white dark:bg-[#04052e] p-6 rounded-lg border border-slate-200 dark:border-[#140152] shadow-lg shadow-blue-900/10 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                <h3 className="text-xl font-semibold text-blue-700 dark:text-blue-300">{item.role}</h3>
+                <p className="text-slate-700 dark:text-slate-300 font-medium mb-1">{item.company}</p>
                 <p className="text-sm text-slate-500 mb-3">{item.period}</p>
-                <ul className="text-sm text-left text-slate-400 space-y-2 list-disc list-inside">
+                <ul className="text-sm text-left text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
                   {item.description.map((desc, i) => <li key={i}>{desc}</li>)}
                 </ul>
               </div>

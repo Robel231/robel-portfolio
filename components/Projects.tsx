@@ -39,24 +39,24 @@ const projectData: Project[] = [
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="bg-[#04052e] rounded-lg overflow-hidden border border-[#140152] group transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 hover:border-blue-600">
+    <div className="bg-white dark:bg-[#04052e] rounded-lg overflow-hidden border border-slate-200 dark:border-[#140152] group transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 hover:border-blue-400 dark:hover:border-blue-600">
       <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover" />
       <div className="p-6">
-        <h3 className="text-xl font-bold text-[#e2e8f0] mb-2">{project.title}</h3>
-        <p className="text-slate-400 mb-4 text-sm">{project.description}</p>
+        <h3 className="text-xl font-bold text-slate-900 dark:text-[#e2e8f0] mb-2">{project.title}</h3>
+        <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
-            <span key={tech} className="bg-[#22007c] text-[#e2e8f0] text-xs font-medium px-2.5 py-1 rounded-full">{tech}</span>
+            <span key={tech} className="bg-blue-100 dark:bg-[#22007c] text-blue-800 dark:text-[#e2e8f0] text-xs font-medium px-2.5 py-1 rounded-full">{tech}</span>
           ))}
         </div>
         <div className="flex items-center gap-4 mt-auto">
           {project.liveLink && (
-            <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-blue-300 hover:text-blue-100 transition-colors">
+            <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-100 transition-colors">
               <ExternalLinkIcon /> Live Demo
             </a>
           )}
           {project.repoLink && (
-            <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-blue-300 hover:text-blue-100 transition-colors">
+            <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-100 transition-colors">
               <GitHubIcon /> Code
             </a>
           )}
@@ -68,32 +68,32 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
 
 const Projects: React.FC = () => {
-    const containerVariants: Variants = {
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.2,
-          },
-        },
-      };
-      
-      const itemVariants: Variants = {
-        hidden: { opacity: 0, scale: 0.95, y: 30 },
-        visible: {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          transition: {
-            duration: 0.5,
-            ease: 'easeOut',
-          }
-        },
-      };
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.95, y: 30 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      }
+    },
+  };
 
   return (
     <section id="projects" className="py-20 md:py-32">
       <motion.h2
-        className="text-3xl font-bold text-[#e2e8f0] text-center mb-12"
+        className="text-3xl font-bold text-slate-900 dark:text-[#e2e8f0] text-center mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.8 }}

@@ -1,110 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robel Shemeles | AI & Full-Stack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* For smooth scrolling */
-      html {
-        scroll-behavior: smooth;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robel Shemeles | AI & Full-Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            // Custom colors if needed
+          }
+        }
       }
+    }
+  </script>
+  <style>
+    /* For smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
 
-      /* Tech Orbit Styles - Mobile First */
+    /* Tech Orbit Styles - Mobile First */
+    .tech-orbit-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      margin: 3rem auto 0;
+    }
+
+    .orbit-center-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0) 70%);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .dark .orbit-center-glow {
+      background: radial-gradient(circle, rgba(13, 0, 164, 0.4) 0%, rgba(13, 0, 164, 0) 70%);
+    }
+
+    .orbit-center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e293b;
+      z-index: 5;
+    }
+
+    .dark .orbit-center-text {
+      color: #e2e8f0;
+    }
+
+    .tech-orbit-spinner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      animation: orbit-spin 50s linear infinite;
+    }
+
+    .orbit-icon {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+
+    .orbit-icon-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      animation: counter-rotate 50s linear infinite;
+      transition: transform 0.3s ease;
+      color: #1e293b;
+    }
+
+    .dark .orbit-icon-content {
+      color: #e2e8f0;
+    }
+
+    .orbit-icon-name {
+      font-size: 11px;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .tech-orbit-container:hover .tech-orbit-spinner,
+    .tech-orbit-container:hover .orbit-icon-content {
+      animation-play-state: paused;
+    }
+
+    .orbit-icon:hover .orbit-icon-content {
+      transform: scale(1.5);
+      z-index: 10;
+    }
+
+    /* Larger screens */
+    @media (min-width: 768px) {
       .tech-orbit-container {
-        position: relative;
-        width: 320px;
-        height: 320px;
-        margin: 3rem auto 0;
-      }
-      .orbit-center-glow {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 80px;
-        height: 80px;
-        background: radial-gradient(circle, rgba(13, 0, 164, 0.4) 0%, rgba(13, 0, 164, 0) 70%);
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-      }
-      .orbit-center-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 2rem;
-        font-weight: 700;
-        color: #e2e8f0;
-        z-index: 5;
-      }
-      .tech-orbit-spinner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        animation: orbit-spin 50s linear infinite;
-      }
-      .orbit-icon {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-      }
-      .orbit-icon-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        animation: counter-rotate 50s linear infinite;
-        transition: transform 0.3s ease;
-        color: #e2e8f0;
-      }
-      .orbit-icon-name {
-          font-size: 11px;
-          white-space: nowrap;
-          text-align: center;
-      }
-      .tech-orbit-container:hover .tech-orbit-spinner,
-      .tech-orbit-container:hover .orbit-icon-content {
-        animation-play-state: paused;
-      }
-      .orbit-icon:hover .orbit-icon-content {
-        transform: scale(1.5);
-        z-index: 10;
-      }
-      
-      /* Larger screens */
-      @media (min-width: 768px) {
-        .tech-orbit-container {
-          width: 400px;
-          height: 400px;
-          margin-top: 4rem;
-        }
-        .orbit-center-text {
-          font-size: 2.5rem;
-        }
-        .orbit-icon-name {
-          font-size: 12px;
-        }
+        width: 400px;
+        height: 400px;
+        margin-top: 4rem;
       }
 
-      @keyframes orbit-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
+      .orbit-center-text {
+        font-size: 2.5rem;
       }
-      @keyframes counter-rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(-360deg);
-        }
+
+      .orbit-icon-name {
+        font-size: 12px;
       }
-    </style>
-<script type="importmap">
+    }
+
+    @keyframes orbit-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes counter-rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+  </style>
+  <script type="importmap">
 {
   "imports": {
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
@@ -115,8 +153,10 @@
 }
 </script>
 </head>
+
 <body class="bg-[#02010a]">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

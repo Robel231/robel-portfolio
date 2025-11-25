@@ -58,17 +58,17 @@ const skillData: SkillCategory[] = [
 ];
 
 const SectionIcon = ({ title }: { title: string }) => {
-    switch(title) {
-        case 'Frontend Development':
-        case 'Backend Development':
-            return <CodeIcon className="w-8 h-8 text-blue-400" />;
-        case 'AI & Automation':
-            return <BrainCircuitIcon className="w-8 h-8 text-blue-400" />;
-        case 'Databases & DevOps':
-            return <ServerCogIcon className="w-8 h-8 text-blue-400" />;
-        default:
-            return null;
-    }
+  switch (title) {
+    case 'Frontend Development':
+    case 'Backend Development':
+      return <CodeIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />;
+    case 'AI & Automation':
+      return <BrainCircuitIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />;
+    case 'Databases & DevOps':
+      return <ServerCogIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />;
+    default:
+      return null;
+  }
 };
 
 const containerVariants: Variants = {
@@ -98,7 +98,7 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-20 md:py-32">
       <motion.h2
-        className="text-3xl font-bold text-[#e2e8f0] text-center mb-12"
+        className="text-3xl font-bold text-slate-900 dark:text-[#e2e8f0] text-center mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.8 }}
@@ -114,14 +114,14 @@ const Skills: React.FC = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         {skillData.map((category) => (
-          <motion.div key={category.title} className="bg-[#04052e]/50 p-6 rounded-lg border border-[#140152]" variants={itemVariants}>
+          <motion.div key={category.title} className="bg-white dark:bg-[#04052e]/50 p-6 rounded-lg border border-slate-200 dark:border-[#140152] shadow-sm hover:shadow-md transition-shadow" variants={itemVariants}>
             <div className="flex items-center gap-4 mb-4">
               <SectionIcon title={category.title} />
-              <h3 className="text-xl font-semibold text-[#e2e8f0]">{category.title}</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-[#e2e8f0]">{category.title}</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
-                <span key={skill.name} className="bg-[#22007c] text-[#e2e8f0] text-sm font-medium px-3 py-1 rounded-full">
+                <span key={skill.name} className="bg-blue-100 dark:bg-[#22007c] text-blue-800 dark:text-[#e2e8f0] text-sm font-medium px-3 py-1 rounded-full">
                   {skill.name}
                 </span>
               ))}
