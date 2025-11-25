@@ -6,7 +6,7 @@ import { SparklesIcon } from './icons/SparklesIcon';
 import { LanguagesIcon } from './icons/LanguagesIcon';
 
 const About: React.FC = () => {
-  const profileImage = 'https://media.licdn.com/dms/image/v2/D4D03AQETH4rc0gTRaA/profile-displayphoto-scale_200_200/B4DZqCxOaJJMAY-/0/1763130534998?e=1764806400&v=beta&t=lzsOJnZT2LYoj23omdBh9LTh-gB_65yc8YTUnJfl0OQ';
+  const profileImage = 'https://media.licdn.com/dms/image/v2/D4D03AQH8fw5AT3zenw/profile-displayphoto-scale_200_200/B4DZqsfSUkGwAY-/0/1763830474845?e=1765411200&v=beta&t=jK6YuPJyUbUcIJ32NUClFMFuid0OhbyArhBX3RL8mtM';
 
   const subsectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
