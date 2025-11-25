@@ -15,10 +15,10 @@ const technologies = [
   { name: 'Git & GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', darkLogo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg' },
   { name: 'Supabase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' },
   { name: 'Firebase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
-  { name: 'N8N', logo: 'https://n8n.io/favicon.svg' },
+  { name: 'N8N', logo: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/n8n-color.png' },
   { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
   { name: 'Google Cloud', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg' },
-  { name: 'Vertex AI', logo: 'https://www.gstatic.com/images/branding/product/2x/vertex_ai_64dp.png' },
+  { name: 'Vertex AI', logo: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/vertexai-color.png' },
 ];
 
 const TechOrbit: React.FC = () => {
