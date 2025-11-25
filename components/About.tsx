@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import { GraduationCapIcon } from './icons/GraduationCapIcon';
 import { SparklesIcon } from './icons/SparklesIcon';
 import { LanguagesIcon } from './icons/LanguagesIcon';
+import GitHubStats from './GitHubStats';
 
 const About: React.FC = () => {
   const profileImage = 'https://media.licdn.com/dms/image/v2/D4D03AQH8fw5AT3zenw/profile-displayphoto-scale_200_200/B4DZqsfSUkGwAY-/0/1763830474845?e=1765411200&v=beta&t=jK6YuPJyUbUcIJ32NUClFMFuid0OhbyArhBX3RL8mtM';
@@ -103,6 +104,9 @@ const About: React.FC = () => {
                 </ul>
               </div>
             </motion.div>
+
+            {/* GitHub Stats */}
+            <GitHubStats />
           </div>
         </motion.div>
       </div>
