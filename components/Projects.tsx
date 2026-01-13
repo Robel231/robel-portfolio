@@ -35,6 +35,24 @@ const projectData: Project[] = [
     repoLink: 'https://github.com/Robel231/amro-ai-chat',
     imageUrl: 'https://picsum.photos/seed/chatbot/600/400',
   },
+  {
+    title: 'AI Pharmacy Assistance',
+    description: 'An intelligent automation workflow built with n8n for the Droga Pharmacy App, serving as an AI-powered assistant to streamline pharmacy operations, and it help patents to get the right medicine for their symptoms. and it will send email to the sales team to notify them about missing medicine.',
+    technologies: ['n8n', 'Webhooks', 'AI Agents', 'Google Gemini'],
+    imageUrl: '/ai-pharmacy-assistance.png',
+  },
+  {
+    title: 'AI Doctor Assistant',
+    description: 'An AI-powered workflow designed to assist doctors in analyzing patient data, utilizing Google Gemini and SQL integration for enhanced medical insights.',
+    technologies: ['n8n', 'Google Gemini', 'SQL', 'AI Agents'],
+    imageUrl: '/ai-doctor-assistant.png',
+  },
+  {
+    title: 'Advanced CRM to Jira Automation',
+    description: 'A comprehensive automation workflow that syncs CRM data with Jira tickets, streamlining issue tracking and ensuring real-time team synchronization via Slack.',
+    technologies: ['n8n', 'Jira API', 'CRM Integration', 'Slack', 'Webhooks'],
+    imageUrl: '/jira-crm-workflow.png',
+  },
 ];
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {

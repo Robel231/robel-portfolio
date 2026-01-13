@@ -7,7 +7,7 @@ import { LanguagesIcon } from './icons/LanguagesIcon';
 import GitHubStats from './GitHubStats';
 
 const About: React.FC = () => {
-  const profileImage = 'https://media.licdn.com/dms/image/v2/D4D03AQH8fw5AT3zenw/profile-displayphoto-scale_200_200/B4DZqsfSUkGwAY-/0/1763830474845?e=1765411200&v=beta&t=jK6YuPJyUbUcIJ32NUClFMFuid0OhbyArhBX3RL8mtM';
+  const profileImage = 'https://avatars.githubusercontent.com/u/141173346?v=4';
 
   const subsectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
