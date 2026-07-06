@@ -1,10 +1,10 @@
-
 export interface Skill {
   name: string;
 }
 
 export interface SkillCategory {
   title: string;
+  tagline: string;
   skills: Skill[];
 }
 
@@ -13,13 +13,20 @@ export interface ExperienceItem {
   company: string;
   period: string;
   description: string[];
+  tags: string[];
 }
+
+export type ProjectCategory = 'AI & Agents' | 'Full-Stack' | 'Automation' | 'SEO';
 
 export interface Project {
   title: string;
   description: string;
   technologies: string[];
+  category: ProjectCategory;
+  featured?: boolean;
+  metric?: string;
   liveLink?: string;
   repoLink?: string;
-  imageUrl: string;
+  imageUrl?: string;
+  gradient?: string;
 }

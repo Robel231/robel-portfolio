@@ -1,134 +1,137 @@
-import React from 'react';
-// FIX: Import Variants type from framer-motion to fix type errors.
+import React, { useCallback } from 'react';
 import { motion, Variants } from 'framer-motion';
 import type { SkillCategory } from '../types';
-import { CodeIcon } from './icons/CodeIcon';
+import SectionHeading from './SectionHeading';
 import { BrainCircuitIcon } from './icons/BrainCircuitIcon';
+import { SparklesIcon } from './icons/SparklesIcon';
 import { ServerCogIcon } from './icons/ServerCogIcon';
+import { CodeIcon } from './icons/CodeIcon';
 
-const skillData: SkillCategory[] = [
+const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; gradient: string })[] = [
   {
-    title: 'Frontend Development',
+    title: 'AI / Machine Learning',
+    tagline: 'LLMs in production, not in notebooks',
+    icon: BrainCircuitIcon,
+    gradient: 'from-emerald-500 to-teal-500',
     skills: [
-      { name: 'React' },
-      { name: 'Next.js' },
-      { name: 'JavaScript' },
-      { name: 'HTML5' },
-      { name: 'CSS3' },
-      { name: 'Tailwind CSS' },
+      { name: 'OpenAI' }, { name: 'Gemini' }, { name: 'Claude' }, { name: 'PyTorch' },
+      { name: 'TensorFlow' }, { name: 'RAG' }, { name: 'Fine-Tuning' },
     ],
   },
   {
-    title: 'Backend Development',
+    title: 'Automation & Agents',
+    tagline: 'Multi-agent workflows that run themselves',
+    icon: SparklesIcon,
+    gradient: 'from-lime-500 to-emerald-500',
     skills: [
-      { name: 'Python' },
-      { name: 'FastAPI' },
-      { name: 'Flask' },
-      { name: 'Django' },
-      { name: 'Node.js' },
-      { name: 'SQL' },
+      { name: 'n8n' }, { name: 'LangChain' }, { name: 'Celery' }, { name: 'Redis' },
+      { name: 'Telegram Bots' }, { name: 'Webhooks' },
     ],
   },
   {
-    title: 'AI & Automation',
+    title: 'Backend',
+    tagline: 'Secure APIs bridging frontends to AI',
+    icon: ServerCogIcon,
+    gradient: 'from-teal-500 to-cyan-500',
     skills: [
-      { name: 'N8N' },
-      { name: 'OpenAI API' },
-      { name: 'Model Fine-Tuning' },
-      { name: 'Vertex AI' },
-      { name: 'Vertex AI Fine Tuning' },
-      { name: 'Telegram Bots' },
-      { name: 'Workflow Automation' },
+      { name: 'Python' }, { name: 'FastAPI' }, { name: 'Flask' }, { name: 'Django' },
+      { name: 'PostgreSQL' }, { name: 'MySQL' }, { name: 'JWT / RBAC' },
     ],
   },
   {
-    title: 'Databases & DevOps',
+    title: 'Frontend',
+    tagline: 'Interfaces people actually enjoy',
+    icon: CodeIcon,
+    gradient: 'from-cyan-500 to-blue-500',
     skills: [
-      { name: 'PostgreSQL' },
-      { name: 'Supabase' },
-      { name: 'Firebase' },
-      { name: 'Google Cloud' },
-      { name: 'Git & GitHub' },
-      { name: 'Docker' },
-      { name: 'Vercel' },
-      { name: 'Render' },
-      { name: 'Linux' },
+      { name: 'React 18/19' }, { name: 'Next.js' }, { name: 'TypeScript' },
+      { name: 'React Native (Expo)' }, { name: 'Tailwind CSS' }, { name: 'Framer Motion' },
+    ],
+  },
+  {
+    title: 'SEO / GEO',
+    tagline: 'Ranking in Google and in AI answers',
+    icon: SparklesIcon,
+    gradient: 'from-amber-500 to-orange-500',
+    skills: [
+      { name: 'On-page SEO' }, { name: 'Technical SEO' }, { name: 'Schema Markup' },
+      { name: 'Core Web Vitals' }, { name: 'GEO (AI Search)' },
+    ],
+  },
+  {
+    title: 'DevOps & Infrastructure',
+    tagline: '99.9% uptime is a habit',
+    icon: ServerCogIcon,
+    gradient: 'from-rose-500 to-pink-500',
+    skills: [
+      { name: 'Docker' }, { name: 'Kubernetes' }, { name: 'Linux' }, { name: 'Git' },
+      { name: 'Vercel' }, { name: 'CI/CD' }, { name: 'SysAdmin' },
     ],
   },
 ];
 
-const SectionIcon = ({ title }: { title: string }) => {
-  switch (title) {
-    case 'Frontend Development':
-    case 'Backend Development':
-      return <CodeIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />;
-    case 'AI & Automation':
-      return <BrainCircuitIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />;
-    case 'Databases & DevOps':
-      return <ServerCogIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />;
-    default:
-      return null;
-  }
-};
-
 const containerVariants: Variants = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut'
-    }
-  },
+  hidden: { opacity: 0, y: 34 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };
 
-
 const Skills: React.FC = () => {
+  // Feed cursor position to the CSS spotlight (--mx / --my)
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`);
+  }, []);
+
   return (
-    <section id="skills" className="py-20 md:py-32">
-      <motion.h2
-        className="text-3xl font-bold text-slate-900 dark:text-[#e2e8f0] text-center mb-12"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.8 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        Technical Skills
-      </motion.h2>
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {skillData.map((category) => (
-          <motion.div key={category.title} className="bg-white dark:bg-[#04052e]/50 p-6 rounded-lg border border-slate-200 dark:border-[#140152] shadow-sm hover:shadow-md transition-shadow" variants={itemVariants}>
-            <div className="flex items-center gap-4 mb-4">
-              <SectionIcon title={category.title} />
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-[#e2e8f0]">{category.title}</h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {category.skills.map((skill) => (
-                <span key={skill.name} className="bg-blue-100 dark:bg-[#22007c] text-blue-800 dark:text-[#e2e8f0] text-sm font-medium px-3 py-1 rounded-full">
-                  {skill.name}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+    <section id="skills" className="py-24 md:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="02 · Skills"
+          title="The toolbox"
+          subtitle="Six disciplines, one goal: intelligent systems that hold up in production."
+        />
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          {skillData.map((category) => (
+            <motion.div
+              key={category.title}
+              variants={itemVariants}
+              onMouseMove={handleMouseMove}
+              className="spotlight-card group rounded-2xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-sm p-6 hover:border-emerald-300 dark:hover:border-white/20 transition-colors"
+            >
+              <div className="flex items-center gap-4 mb-1.5">
+                <div className={`flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${category.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon className="w-6 h-6" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-slate-900 dark:text-white">{category.title}</h3>
+              </div>
+              <p className="font-mono text-xs text-slate-500 dark:text-slate-500 mb-5">// {category.tagline}</p>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="rounded-full border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-white/5 px-3 py-1 text-sm text-slate-700 dark:text-slate-300 hover:border-emerald-400 dark:hover:border-emerald-400/50 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors cursor-default"
+                  >
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
