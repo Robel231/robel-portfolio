@@ -4,7 +4,7 @@ import { GitHubIcon } from './icons/GitHubIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 import Terminal from './Terminal';
 
-const roles = ['AI Engineer', 'Full-Stack Developer', 'n8n & LangChain Automation', 'SEO / GEO Specialist'];
+const roles = ['AI Engineer', 'Full-Stack Developer', 'Python · Go · Flutter', 'n8n & AI Automation', 'SEO / GEO Specialist'];
 
 /** Types, holds, deletes, and cycles through the given words. */
 const useTypewriter = (words: string[]) => {
@@ -110,9 +110,9 @@ const Hero: React.FC = () => {
             </motion.div>
 
             <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0">
-              I ship production AI systems — multi-agent n8n &amp; LangChain pipelines, secure FastAPI
-              backends, and LLM integrations across ERP, PropTech, healthcare, and voice AI. All live,
-              all in active use.
+              I build and run production systems end to end — FastAPI and Go backends, Next.js web
+              apps, offline-first Flutter apps, and AI assistants on n8n and Gemini across booking,
+              pharmacy, HR, and ERP. All live, all in daily use.
             </motion.p>
 
             <motion.div variants={itemVariants} className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-4">

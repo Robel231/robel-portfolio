@@ -7,38 +7,94 @@ import { GitHubIcon } from './icons/GitHubIcon';
 
 const featuredProjects: Project[] = [
   {
-    title: 'DCS Wellness — Health Platform',
+    title: 'DrogaBooking — Rooms & Staff Booking',
     description:
-      'Full-stack health platform built from zero: streaming AI diagnostics, Ethiopian food image recognition, 4-language support, and real-time analytics.',
-    technologies: ['FastAPI', 'React', 'RN Expo', 'Gemini AI', 'Docker'],
+      "Booking platform for the companies in one group: staff book meeting rooms and colleagues' time, each company gets itemised bills with CSV export, and assistants can book on someone's behalf. PostgreSQL rules make double booking impossible, and the Flutter Android app keeps working offline.",
+    technologies: ['FastAPI', 'PostgreSQL', 'Next.js', 'Flutter', 'GitHub Actions'],
     category: 'Full-Stack',
     featured: true,
-    metric: '4 languages · AI diagnostics',
-    liveLink: 'https://drogapharma.rw',
+    metric: '82 endpoints · 600+ tests',
     gradient: 'from-emerald-500/80 via-teal-500/70 to-cyan-500/80',
   },
   {
     title: 'DrogaPulse — Social Media SaaS',
     description:
-      'Social media management SaaS built from zero: OAuth2 across 5 platforms, Gemini AI Studio, team collaboration, Celery background jobs, and Android via Capacitor.',
-    technologies: ['FastAPI', 'React', 'Celery', 'Redis', 'Gemini', 'Capacitor'],
+      'Teams plan, approve and publish posts to Facebook, Instagram, LinkedIn and X from one content calendar, with an Ethiopian calendar view. Gemini writes captions and analytics reports, Celery and Redis run the publishing queue, and an Android app ships from the same code via Capacitor.',
+    technologies: ['FastAPI', 'React', 'PostgreSQL', 'Celery', 'Redis', 'Gemini', 'Capacitor'],
     category: 'Full-Stack',
     featured: true,
-    metric: 'OAuth2 × 5 platforms',
-    liveLink: 'https://drogapulse.mafilink.com',
+    metric: 'Live · 4 networks · ~400 tests',
+    liveLink: 'https://drogapulse.drogatech.com',
     gradient: 'from-teal-500/80 via-emerald-500/70 to-lime-500/80',
   },
 ];
 
 const projectData: Project[] = [
   {
+    title: 'habesha-names',
+    description:
+      "Open-source Python library for Ethiopian and Eritrean names in KYC, remittance and HR systems: Ge'ez to Latin transliteration and back, spelling variants, patronymic-aware parsing and sound-alike matching. Zero dependencies, fully typed, ~50K matches per second.",
+    technologies: ['Python', 'PyPI', 'Typed', 'GitHub Actions'],
+    category: 'Open Source',
+    metric: '1,700+ test name pairs',
+    liveLink: 'https://pypi.org/project/habesha-names/',
+    repoLink: 'https://github.com/Robel231/habesha-names',
+    gradient: 'from-lime-600/70 to-emerald-600/70',
+  },
+  {
+    title: 'Executive Dashboard API in Go',
+    description:
+      'Go backend for a group-level executive dashboard: multi-level approvals, tasks, risks, KPIs, company comparison and a full audit trail. Chi router, pgx with hand-written SQL, goose migrations and JWT auth, behind a Next.js 15 frontend. In development.',
+    technologies: ['Go', 'chi', 'pgx', 'PostgreSQL', 'Next.js 15'],
+    category: 'Full-Stack',
+    metric: '68 routes · 351 e2e checks',
+    gradient: 'from-cyan-600/70 to-sky-600/70',
+  },
+  {
+    title: 'Wuten Finance App',
+    description:
+      'Flutter app that reads SMS from Ethiopian banks and telebirr (CBE, Awash, Dashen, Abyssinia and more) to log spending automatically. Budgets, savings goals, equb, debts and an AI assistant that answers from your own records, in Amharic and English.',
+    technologies: ['Flutter', 'Dart', 'SQLite', 'AI Assistant'],
+    category: 'Mobile',
+    metric: '~430 tests',
+    gradient: 'from-emerald-600/70 to-lime-600/70',
+  },
+  {
+    title: 'Market Intelligence Dashboard',
+    description:
+      'Competitor import analytics for management, built on regulator import-permit data: a Python ETL into PostgreSQL, a FastAPI and React dashboard, and an AI chatbot that answers who imports what, and at what price.',
+    technologies: ['Python ETL', 'PostgreSQL', 'FastAPI', 'React', 'AI Chatbot'],
+    category: 'Full-Stack',
+    metric: 'Who imports what',
+    gradient: 'from-teal-600/70 to-cyan-600/70',
+  },
+  {
+    title: 'DCS Wellness — Health Platform',
+    description:
+      'Health platform built from zero: streaming AI diagnostics, Ethiopian food recognition from photos, 4-language support and real-time analytics.',
+    technologies: ['FastAPI', 'React', 'RN Expo', 'Gemini AI', 'Docker'],
+    category: 'Full-Stack',
+    metric: '4 languages · AI diagnostics',
+    liveLink: 'https://yene-jegna.drogapharma.rw',
+    gradient: 'from-emerald-600/70 to-cyan-600/70',
+  },
+  {
     title: 'AI Pharmacy Assistant',
     description:
-      '26-node n8n agentic workflow with 5 specialist Gemini agents and shared memory — guides patients to the right medicine and alerts the sales team about stock-outs.',
-    technologies: ['n8n', 'Gemini', 'AI Agents', 'Memory'],
+      '26-node n8n agentic workflow with 5 specialist Gemini agents and shared memory — answers stock questions, reads prescription photos, guides patients to the right medicine and alerts the sales team about stock-outs.',
+    technologies: ['n8n', 'Gemini', 'AI Agents', 'Vision'],
     category: 'AI & Agents',
     metric: '26 nodes · 5 agents',
     imageUrl: '/ai-pharmacy-assistance.png',
+  },
+  {
+    title: 'HR Performance Assistant (RBAC)',
+    description:
+      'AI assistant for a performance-management system where employees, managers and HR each see only what their role allows. FastAPI middleware proves identity from a signed JWT, and the agent runs only permission-scoped, read-only queries, never its own SQL.',
+    technologies: ['n8n', 'FastAPI', 'JWT', 'RBAC', 'Gemini'],
+    category: 'AI & Agents',
+    metric: 'Role-scoped data',
+    gradient: 'from-cyan-600/70 to-blue-600/70',
   },
   {
     title: 'Odoo ERP AI Assistant',
@@ -50,23 +106,6 @@ const projectData: Project[] = [
     gradient: 'from-teal-600/70 to-emerald-600/70',
   },
   {
-    title: 'AI Doctor Assistant',
-    description:
-      'AI workflow assisting doctors with patient data analysis, combining Google Gemini with SQL integration for grounded medical insights.',
-    technologies: ['n8n', 'Google Gemini', 'SQL', 'AI Agents'],
-    category: 'AI & Agents',
-    imageUrl: '/ai-doctor-assistant.png',
-  },
-  {
-    title: 'RBAC PMS Chatbot',
-    description:
-      'Property-management chatbot with JWT authentication, role-based access control, and dual-LLM fallback for reliability under provider outages.',
-    technologies: ['n8n', 'JWT', 'RBAC', 'OpenRouter'],
-    category: 'AI & Agents',
-    metric: 'Dual-LLM fallback',
-    gradient: 'from-cyan-600/70 to-blue-600/70',
-  },
-  {
     title: 'Amharic Voice Registration',
     description:
       'Multimodal Amharic voice pipeline on Gemini 2.5 Flash — spoken registration in, structured records out. Voice AI for a language most models overlook.',
@@ -74,6 +113,14 @@ const projectData: Project[] = [
     category: 'AI & Agents',
     metric: 'Amharic voice → data',
     gradient: 'from-lime-600/70 to-emerald-600/70',
+  },
+  {
+    title: 'AI Doctor Assistant',
+    description:
+      'AI workflow assisting doctors with patient data analysis, combining Google Gemini with SQL integration for grounded medical insights.',
+    technologies: ['n8n', 'Google Gemini', 'SQL', 'AI Agents'],
+    category: 'AI & Agents',
+    imageUrl: '/ai-doctor-assistant.png',
   },
   {
     title: 'FastAPI Secure Middleware Suite',
@@ -133,7 +180,7 @@ const projectData: Project[] = [
   },
 ];
 
-const filters: ('All' | ProjectCategory)[] = ['All', 'AI & Agents', 'Full-Stack', 'Automation', 'SEO'];
+const filters: ('All' | ProjectCategory)[] = ['All', 'AI & Agents', 'Full-Stack', 'Mobile', 'Open Source', 'Automation', 'SEO'];
 
 /** Cover: real screenshot when available, otherwise a designed gradient tile. */
 const ProjectCover: React.FC<{ project: Project }> = ({ project }) => {
@@ -214,11 +261,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
   </div>
 );
 
+// In-house tools (no liveLink) render as a plain card instead of a dead link.
 const FeaturedCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => (
   <motion.a
     href={project.liveLink}
-    target="_blank"
-    rel="noopener noreferrer"
+    target={project.liveLink ? '_blank' : undefined}
+    rel={project.liveLink ? 'noopener noreferrer' : undefined}
     className="group relative block rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-400/30 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-emerald-500/15 transition-all duration-300"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -233,9 +281,11 @@ const FeaturedCard: React.FC<{ project: Project; index: number }> = ({ project, 
       <span className="absolute top-5 left-5 rounded-full bg-black/25 backdrop-blur px-3.5 py-1.5 font-mono text-xs font-medium text-white">
         ★ Featured · {project.metric}
       </span>
-      <span className="absolute bottom-5 right-5 flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-white opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
-        Visit live site <ExternalLinkIcon className="w-3.5 h-3.5" />
-      </span>
+      {project.liveLink && (
+        <span className="absolute bottom-5 right-5 flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-white opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+          Visit live site <ExternalLinkIcon className="w-3.5 h-3.5" />
+        </span>
+      )}
       <h3 className="absolute bottom-5 left-5 right-24 font-display text-2xl md:text-3xl font-bold text-white drop-shadow">
         {project.title}
       </h3>
@@ -249,6 +299,9 @@ const FeaturedCard: React.FC<{ project: Project; index: number }> = ({ project, 
           </span>
         ))}
       </div>
+      {!project.liveLink && (
+        <p className="mt-4 font-mono text-xs text-slate-500 dark:text-slate-500">// in-house · runs behind a company login</p>
+      )}
     </div>
   </motion.a>
 );
@@ -273,7 +326,7 @@ const Projects: React.FC = () => {
         <SectionHeading
           eyebrow="04 · Projects"
           title="Built, shipped, and running"
-          subtitle="A selection of production systems — from multi-agent AI pipelines to full-stack platforms."
+          subtitle="A selection of production systems — from booking platforms and SaaS to multi-agent AI pipelines and open-source libraries."
         />
 
         {/* Featured */}

@@ -9,13 +9,13 @@ import { CodeIcon } from './icons/CodeIcon';
 
 const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; gradient: string })[] = [
   {
-    title: 'AI / Machine Learning',
+    title: 'AI / LLMs',
     tagline: 'LLMs in production, not in notebooks',
     icon: BrainCircuitIcon,
     gradient: 'from-emerald-500 to-teal-500',
     skills: [
-      { name: 'OpenAI' }, { name: 'Gemini' }, { name: 'Claude' }, { name: 'PyTorch' },
-      { name: 'TensorFlow' }, { name: 'RAG' }, { name: 'Fine-Tuning' },
+      { name: 'Gemini' }, { name: 'OpenAI' }, { name: 'Claude' }, { name: 'LangChain' },
+      { name: 'RAG' }, { name: 'AI Agents' }, { name: 'Multimodal' },
     ],
   },
   {
@@ -24,8 +24,8 @@ const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; grad
     icon: SparklesIcon,
     gradient: 'from-lime-500 to-emerald-500',
     skills: [
-      { name: 'n8n' }, { name: 'LangChain' }, { name: 'Celery' }, { name: 'Redis' },
-      { name: 'Telegram Bots' }, { name: 'Webhooks' },
+      { name: 'n8n' }, { name: 'Telegram Bots' }, { name: 'Webhooks' },
+      { name: 'Celery' }, { name: 'Redis' },
     ],
   },
   {
@@ -34,18 +34,18 @@ const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; grad
     icon: ServerCogIcon,
     gradient: 'from-teal-500 to-cyan-500',
     skills: [
-      { name: 'Python' }, { name: 'FastAPI' }, { name: 'Flask' }, { name: 'Django' },
-      { name: 'PostgreSQL' }, { name: 'MySQL' }, { name: 'JWT / RBAC' },
+      { name: 'Python' }, { name: 'FastAPI' }, { name: 'Go' }, { name: 'Django' }, { name: 'Node.js' },
+      { name: 'PostgreSQL' }, { name: 'MySQL' }, { name: 'SQLAlchemy' }, { name: 'JWT / RBAC' },
     ],
   },
   {
-    title: 'Frontend',
-    tagline: 'Interfaces people actually enjoy',
+    title: 'Frontend & Mobile',
+    tagline: 'Web and Android apps people actually enjoy',
     icon: CodeIcon,
     gradient: 'from-cyan-500 to-blue-500',
     skills: [
-      { name: 'React 18/19' }, { name: 'Next.js' }, { name: 'TypeScript' },
-      { name: 'React Native (Expo)' }, { name: 'Tailwind CSS' }, { name: 'Framer Motion' },
+      { name: 'React 18/19' }, { name: 'Next.js' }, { name: 'TypeScript' }, { name: 'Tailwind CSS' },
+      { name: 'Flutter' }, { name: 'React Native (Expo)' }, { name: 'Capacitor' },
     ],
   },
   {
@@ -59,13 +59,13 @@ const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; grad
     ],
   },
   {
-    title: 'DevOps & Infrastructure',
+    title: 'DevOps & Testing',
     tagline: '99.9% uptime is a habit',
     icon: ServerCogIcon,
     gradient: 'from-rose-500 to-pink-500',
     skills: [
-      { name: 'Docker' }, { name: 'Kubernetes' }, { name: 'Linux' }, { name: 'Git' },
-      { name: 'Vercel' }, { name: 'CI/CD' }, { name: 'SysAdmin' },
+      { name: 'Docker' }, { name: 'Linux' }, { name: 'nginx' }, { name: 'Traefik' }, { name: 'Cloudflare' },
+      { name: 'GitHub Actions' }, { name: 'pytest' }, { name: 'Vitest' }, { name: 'QA' },
     ],
   },
 ];

@@ -7,22 +7,22 @@ import SectionHeading from './SectionHeading';
 import GitHubStats from './GitHubStats';
 
 const floatingChips = [
-  { label: 'n8n', className: '-top-2 -left-4', delay: '0s' },
-  { label: 'LangChain', className: 'top-1/4 -right-10', delay: '1.2s' },
+  { label: 'FastAPI', className: '-top-2 -left-4', delay: '0s' },
+  { label: 'Flutter', className: 'top-1/4 -right-10', delay: '1.2s' },
   { label: 'Gemini', className: 'bottom-6 -left-10', delay: '2.1s' },
-  { label: 'FastAPI', className: '-bottom-3 right-2', delay: '0.6s' },
+  { label: 'n8n', className: '-bottom-3 right-2', delay: '0.6s' },
 ];
 
 const infoCards = [
   {
     icon: GraduationCapIcon,
     title: 'Education',
-    lines: ['B.Sc. Information Technology', 'Mettu University · 2023', 'CGPA 3.14'],
+    lines: ['B.Sc. Information Technology', 'Mettu University · 2019 — 2023', 'CGPA 3.14'],
   },
   {
     icon: SparklesIcon,
     title: 'Certification',
-    lines: ['Access Course Certificate', 'U.S. Embassy, Addis Ababa'],
+    lines: ['English Access Microscholarship Program', 'U.S. Embassy, Addis Ababa'],
   },
   {
     icon: LanguagesIcon,
@@ -93,13 +93,15 @@ const About: React.FC = () => {
               3+ years shipping production systems at the intersection of intelligent automation and scalable software.
             </p>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
-              I specialise in <strong className="text-slate-800 dark:text-slate-200 font-medium">multi-agent n8n pipelines with LangChain</strong>,
-              secure FastAPI backends bridging frontends to AI webhooks, LLM integration across OpenAI, Gemini, and Claude,
-              and <strong className="text-slate-800 dark:text-slate-200 font-medium">SEO / GEO optimisation</strong> for AI-era search.
+              I build and run systems end to end: <strong className="text-slate-800 dark:text-slate-200 font-medium">FastAPI and Go backends</strong>,
+              React and Next.js web apps, <strong className="text-slate-800 dark:text-slate-200 font-medium">Flutter mobile apps</strong>, AI assistants
+              on n8n and Gemini, the Docker servers they run on, and <strong className="text-slate-800 dark:text-slate-200 font-medium">SEO / GEO</strong> for AI-era search.
             </p>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-10">
-              My agentic systems run in active production across ERP, PropTech, healthcare, and voice AI — from a 26-node
-              pharmacy chatbot with five Gemini specialist agents to an Amharic multimodal voice registration pipeline.
+              My work is in daily use across a group of companies — DrogaBooking, a room and staff booking platform with
+              600+ tests and an offline-first Android app; DrogaPulse, a social media SaaS; and AI assistants for pharmacy,
+              HR, ERP, and suppliers that only ever run permission-scoped queries. I also maintain habesha-names, an
+              open-source Python library on PyPI.
             </p>
 
             <motion.div

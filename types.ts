@@ -16,7 +16,7 @@ export interface ExperienceItem {
   tags: string[];
 }
 
-export type ProjectCategory = 'AI & Agents' | 'Full-Stack' | 'Automation' | 'SEO';
+export type ProjectCategory = 'AI & Agents' | 'Full-Stack' | 'Mobile' | 'Open Source' | 'Automation' | 'SEO';
 
 export interface Project {
   title: string;

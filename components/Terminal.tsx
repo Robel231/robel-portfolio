@@ -11,11 +11,13 @@ const script: TermLine[] = [
   { type: 'cmd', text: 'whoami' },
   { type: 'out', text: 'AI Engineer · Full-Stack Developer — Addis Ababa, ET', color: 'text-slate-500 dark:text-slate-400' },
   { type: 'cmd', text: 'ls ~/production' },
-  { type: 'out', text: 'pharmacy-agent/  odoo-erp-ai/  dcs-wellness/  drogapulse/  pms-chatbot/', color: 'text-teal-600 dark:text-teal-300' },
-  { type: 'cmd', text: 'n8n workflows --status' },
-  { type: 'out', text: '● 26-node pharmacy chatbot · 5 Gemini agents         [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
-  { type: 'out', text: '● Amharic voice pipeline · Gemini 2.5 Flash           [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
-  { type: 'out', text: '● Odoo ERP assistant · 8 live PostgreSQL tools        [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
+  { type: 'out', text: 'drogabooking/  drogapulse/  pharmacy-agent/  hr-assistant/  dcs-wellness/', color: 'text-teal-600 dark:text-teal-300' },
+  { type: 'cmd', text: 'status --live' },
+  { type: 'out', text: '● DrogaBooking · 82 endpoints · 600+ tests           [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
+  { type: 'out', text: '● DrogaPulse · FB · IG · LinkedIn · X                [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
+  { type: 'out', text: '● AI assistants · pharmacy · HR · ERP · supplier     [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
+  { type: 'cmd', text: 'pip install habesha-names' },
+  { type: 'out', text: 'Successfully installed habesha-names-0.2.0', color: 'text-slate-500 dark:text-slate-400' },
   { type: 'cmd', text: 'uptime --production' },
   { type: 'out', text: '99.9% uptime · 20K+ users/month · 0 sleepless clients', color: 'text-slate-500 dark:text-slate-400' },
 ];
@@ -78,7 +80,7 @@ const Terminal: React.FC = () => {
         </div>
 
         {/* Session */}
-        <div className="p-5 font-mono text-[13px] leading-relaxed min-h-[290px]">
+        <div className="p-5 font-mono text-[13px] leading-relaxed min-h-[360px]">
           {script.slice(0, lineIdx + 1).map((line, i) => {
             const isCurrent = i === lineIdx;
             if (line.type === 'cmd') {
