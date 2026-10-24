@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import type { SkillCategory } from '../types';
 import SectionHeading from './SectionHeading';
@@ -6,6 +6,7 @@ import { BrainCircuitIcon } from './icons/BrainCircuitIcon';
 import { SparklesIcon } from './icons/SparklesIcon';
 import { ServerCogIcon } from './icons/ServerCogIcon';
 import { CodeIcon } from './icons/CodeIcon';
+import { trackSpotlight } from '../utils/spotlight';
 
 const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; gradient: string })[] = [
   {
@@ -34,8 +35,8 @@ const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; grad
     icon: ServerCogIcon,
     gradient: 'from-teal-500 to-cyan-500',
     skills: [
-      { name: 'Python' }, { name: 'FastAPI' }, { name: 'Go' }, { name: 'Django' }, { name: 'Node.js' },
-      { name: 'PostgreSQL' }, { name: 'MySQL' }, { name: 'SQLAlchemy' }, { name: 'JWT / RBAC' },
+      { name: 'Python' }, { name: 'FastAPI' }, { name: 'Go' }, { name: 'chi · pgx' }, { name: 'Django' }, { name: 'Node.js' },
+      { name: 'PostgreSQL' }, { name: 'MySQL' }, { name: 'SQLAlchemy' }, { name: 'Alembic' }, { name: 'JWT / RBAC' },
     ],
   },
   {
@@ -59,13 +60,14 @@ const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; grad
     ],
   },
   {
-    title: 'DevOps & Testing',
+    title: 'DevOps, Security & Testing',
     tagline: '99.9% uptime is a habit',
     icon: ServerCogIcon,
     gradient: 'from-rose-500 to-pink-500',
     skills: [
       { name: 'Docker' }, { name: 'Linux' }, { name: 'nginx' }, { name: 'Traefik' }, { name: 'Cloudflare' },
-      { name: 'GitHub Actions' }, { name: 'pytest' }, { name: 'Vitest' }, { name: 'QA' },
+      { name: 'GitHub Actions' }, { name: 'RSA request signing' }, { name: 'AES-256-GCM' }, { name: 'TOTP' },
+      { name: 'govulncheck' }, { name: 'pytest' }, { name: 'Vitest' }, { name: 'QA' },
     ],
   },
 ];
@@ -81,13 +83,6 @@ const itemVariants: Variants = {
 };
 
 const Skills: React.FC = () => {
-  // Feed cursor position to the CSS spotlight (--mx / --my)
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`);
-  }, []);
-
   return (
     <section id="skills" className="py-24 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +103,7 @@ const Skills: React.FC = () => {
             <motion.div
               key={category.title}
               variants={itemVariants}
-              onMouseMove={handleMouseMove}
+              onMouseMove={trackSpotlight}
               className="spotlight-card group rounded-2xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-sm p-6 hover:border-emerald-300 dark:hover:border-white/20 transition-colors"
             >
               <div className="flex items-center gap-4 mb-1.5">

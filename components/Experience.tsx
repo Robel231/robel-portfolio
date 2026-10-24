@@ -3,16 +3,18 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import type { ExperienceItem } from '../types';
 import SectionHeading from './SectionHeading';
 import { BriefcaseIcon } from './icons/BriefcaseIcon';
+import { trackSpotlight } from '../utils/spotlight';
 
 const experienceData: ExperienceItem[] = [
   {
     role: 'AI Specialist & Full-Stack Developer',
     company: 'Droga Consultancy',
-    period: 'Nov 2025 — Present',
-    tags: ['FastAPI', 'Go', 'Next.js', 'Flutter', 'n8n', 'Gemini', 'Docker', 'SEO/GEO'],
+    period: 'Nov 2025 to Present',
+    tags: ['FastAPI', 'Go', 'PostgreSQL', 'Next.js', 'Flutter', 'n8n', 'Gemini', 'Docker', 'SEO/GEO'],
     description: [
       'Built DrogaBooking end to end, the room and staff booking platform for the group companies: FastAPI + PostgreSQL backend (82 endpoints, 600+ tests), Next.js web app, offline-first Flutter Android app, email/SMS notifications and GitHub Actions deploys.',
       'Built DrogaPulse, a social media SaaS that schedules and publishes to Facebook, Instagram, LinkedIn and X, with Gemini captions and reports, a Celery/Redis queue and a Capacitor Android app.',
+      'Building EIMS, a multi-tenant Go e-invoicing platform going through Ministry of Revenue accreditation: a Go SDK with byte-exact SHA512withRSA request signing, a REST service on PostgreSQL with per-tenant AES-256-GCM encryption, RBAC, TOTP and a tamper-evident audit log, Amharic PDF invoices and a bilingual React console. 360+ Go tests, CI with govulncheck.',
       'Shipped live AI assistants on n8n + Gemini: a pharmacy chatbot that reads prescription photos, an HR performance assistant with role-based data access behind JWT-checked FastAPI middleware, an Odoo ERP assistant, a supplier portal assistant and Amharic voice registration. The AI only runs approved, permission-scoped queries, never its own SQL.',
       'Built a market intelligence dashboard and AI chatbot on regulator import data (Python ETL, FastAPI, React, PostgreSQL), and wrote the Go API (chi, pgx, goose, JWT) for a group executive dashboard.',
       'Run the production servers (Docker, Traefik, nginx, Cloudflare, CI/CD, backups) and the SEO & GEO for drogaconsulting.com, so the brand surfaces in AI search (ChatGPT, Perplexity, Gemini).',
@@ -21,22 +23,22 @@ const experienceData: ExperienceItem[] = [
   {
     role: 'System Administrator',
     company: 'Abronet PLC',
-    period: 'Jan 2024 — Sep 2025',
+    period: 'Jan 2024 to Sep 2025',
     tags: ['Linux', 'Scripting', 'Security'],
     description: [
-      'Maintained 99.9% uptime across enterprise platforms.',
-      'Deployed and managed secure financial web platforms with robust security protocols.',
+      "Kept the company's financial web platforms running at 99.9% uptime.",
+      'Hardened server security and access control.',
       'Automated routine maintenance with scripting, cutting operational overhead and human error.',
     ],
   },
   {
     role: 'Software Test Engineer',
     company: 'Transsion Manufacturing',
-    period: '2023 — 2024',
+    period: 'Jan 2023 to Jan 2024',
     tags: ['QA', 'SDLC'],
     description: [
-      'Found 100+ pre-release bugs across mobile and internal systems.',
-      'Improved product quality by 15% through cross-functional SDLC collaboration.',
+      'Found 100+ bugs in products before release.',
+      'Worked with development and product teams across the release cycle, helping raise product quality by 15%.',
     ],
   },
 ];
@@ -89,7 +91,7 @@ const Experience: React.FC = () => {
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.65, ease: 'easeOut' }}
                 >
-                  <div className="spotlight-card rounded-2xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-sm p-6 hover:border-emerald-300 dark:hover:border-white/20 transition-colors">
+                  <div onMouseMove={trackSpotlight} className="spotlight-card rounded-2xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-sm p-6 hover:border-emerald-300 dark:hover:border-white/20 transition-colors">
                     <span className="inline-block font-mono text-xs text-emerald-600 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-400/20 bg-emerald-50 dark:bg-emerald-400/5 rounded-full px-3 py-1 mb-3">
                       {item.period}
                     </span>

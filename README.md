@@ -1,87 +1,38 @@
-# Robel Shemeles - AI & Full-Stack Developer Portfolio
+# Robel Shemeles: AI Engineer & Full-Stack Developer Portfolio
 
-This is the source code for the personal portfolio website of Robel Shemeles Alemayhu, a dynamic Full-Stack Developer and AI Automation Engineer. The website showcases his skills, professional experience, and key projects in a clean, modern, and fully responsive design.
+Source of [robel-portfolio-ten.vercel.app](https://robel-portfolio-ten.vercel.app), the personal portfolio of Robel Shemeles Alemayhu. It covers the production systems he builds and runs: FastAPI and Go backends, a Go e-invoicing platform, Next.js and Flutter apps, AI assistants on n8n and Gemini, and SEO/GEO.
 
-The portfolio is designed to be a comprehensive digital CV, providing a clear overview of Robel's expertise in building scalable web applications and intelligent automation solutions.
+## Stack
 
-## ✨ Features
+- [React 19](https://react.dev/) and TypeScript, bundled by [Vite](https://vitejs.dev/)
+- [Tailwind CSS 3](https://tailwindcss.com/), compiled at build time (`tailwind.config.js`, `index.css`)
+- [Framer Motion](https://motion.dev/) for scroll and layout animation, which respects `prefers-reduced-motion`
+- [Vercel Analytics](https://vercel.com/analytics)
 
-- **Responsive Design**: A mobile-first design that looks great on all devices, from desktops to smartphones.
-- **Interactive UI**: Smooth scrolling, hover effects, and a clean layout for an engaging user experience.
-- **Dynamic Sections**:
-    - **Hero**: A compelling introduction with links to GitHub and LinkedIn.
-    - **About Me**: A detailed summary including professional background, education, achievements, and languages.
-    - **Skills**: A categorized showcase of technical competencies in Frontend, Backend, AI, and DevOps.
-    - **Experience**: A professional timeline highlighting career progression and key responsibilities.
-    - **Projects**: A grid of project cards with descriptions, technologies used, and links to live demos and source code.
-    - **Contact**: Easy-to-access contact information and social links.
-- **Custom Color Palette**: A unique and professional warm color scheme for a distinct visual identity.
-
-## 🛠️ Tech Stack
-
-- **Frontend**: [React](https://react.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: Custom SVG components for a lightweight and consistent look.
-
-## 📂 Project Structure
-
-The project is organized with a clear and scalable component-based architecture.
+## Layout
 
 ```
 .
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── icons/
-│   │   │   └── ... (SVG Icon Components)
-│   │   ├── About.tsx
-│   │   ├── Contact.tsx
-│   │   ├── Experience.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Header.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Projects.tsx
-│   │   └── Skills.tsx
-│   ├── App.tsx
-│   ├── index.css
-│   ├── index.tsx
-│   └── types.ts
-├── .gitignore
-├── index.html
-├── package.json
-├── README.md
-└── tsconfig.json
+├── index.html          # head: SEO meta, JSON-LD, pre-paint theme script, fonts
+├── index.css           # Tailwind layers + custom animations (grid, marquee, spotlight, ...)
+├── index.tsx           # entry point
+├── App.tsx             # assembles the sections
+├── types.ts            # Project, ExperienceItem, SkillCategory
+├── components/         # one file per section (Hero, About, Skills, Experience, Projects, Contact, ...)
+│   └── icons/          # SVG icon components
+├── utils/              # small shared helpers (cursor spotlight, GitHub API)
+└── public/             # project screenshots and Robel_Shemeles_CV.pdf
 ```
 
-- `src/components`: Contains all the reusable React components that make up the different sections of the portfolio.
-- `src/components/icons`: Stores all custom SVG icon components.
-- `src/types.ts`: Defines shared TypeScript interfaces for data structures like `Project`, `ExperienceItem`, etc.
-- `App.tsx`: The main application component that assembles all the sections.
-- `index.tsx`: The entry point for the React application.
+Content lives in the components as plain data (`projectData` and `featuredProjects` in `Projects.tsx`, `experienceData` in `Experience.tsx`, `skillData` in `Skills.tsx`). Every figure on the site should match the CV in `public/Robel_Shemeles_CV.pdf`.
 
-## 🚀 Getting Started
+## Running it
 
-To run this project locally, follow these steps:
+```bash
+npm install
+npm run dev       # http://localhost:3000
+npx tsc --noEmit  # type-check
+npm run build     # production build into dist/
+```
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/Robel231/portfolio.git
-    cd portfolio
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Run the development server:**
-    ```bash
-    npm run dev
-    ```
-
-    Open [http://localhost:5173](http://localhost:5173) (or the port specified in your terminal) to view the website in your browser.
-
----
-
-&copy; 2024 Robel Shemeles Alemayhu. All rights reserved.
+A push to `main` deploys to production on Vercel.

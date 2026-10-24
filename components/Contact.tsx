@@ -5,6 +5,7 @@ import { PhoneIcon } from './icons/PhoneIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 import { GitHubIcon } from './icons/GitHubIcon';
 import { DocumentTextIcon } from './icons/DocumentTextIcon';
+import { TelegramIcon } from './icons/TelegramIcon';
 
 const EMAIL = 'robelshemeles4@gmail.com';
 
@@ -61,8 +62,8 @@ const Contact: React.FC = () => {
           </motion.h2>
 
           <motion.p variants={itemVariants} className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-9">
-            I'm open to new opportunities and collaborations — AI systems, automation pipelines,
-            full-stack products, or making your brand visible in AI-powered search.
+            I'm open to full-time (remote friendly), freelance and consulting work: AI systems, automation
+            pipelines, full-stack products, or making your brand visible in AI-powered search.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
@@ -75,6 +76,7 @@ const Contact: React.FC = () => {
             </a>
             <button
               onClick={copyEmail}
+              aria-live="polite"
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/15 bg-white/60 dark:bg-white/5 px-6 py-3.5 font-mono text-sm text-slate-700 dark:text-slate-300 hover:border-emerald-400 dark:hover:border-emerald-400/50 transition-all backdrop-blur-sm"
             >
               {copied ? (
@@ -101,7 +103,7 @@ const Contact: React.FC = () => {
             </a>
             <span className="inline-flex items-center gap-2">📍 Addis Ababa, Ethiopia</span>
             <a
-              href="https://drive.google.com/file/d/1vQgJ5ahm0qzgrM1bv6W08zLnJZtS3mvz/view?usp=drive_link"
+              href="/Robel_Shemeles_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors"
@@ -128,6 +130,15 @@ const Contact: React.FC = () => {
               className="p-3 rounded-full border border-slate-300 dark:border-white/15 bg-white/60 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-300 hover:border-emerald-400 dark:hover:border-emerald-400/50 hover:-translate-y-0.5 transition-all"
             >
               <LinkedInIcon className="w-5 h-5" />
+            </a>
+            <a
+              href="https://t.me/Itsurboi_robel"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Telegram"
+              className="p-3 rounded-full border border-slate-300 dark:border-white/15 bg-white/60 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-300 hover:border-emerald-400 dark:hover:border-emerald-400/50 hover:-translate-y-0.5 transition-all"
+            >
+              <TelegramIcon className="w-5 h-5" />
             </a>
           </motion.div>
         </motion.div>

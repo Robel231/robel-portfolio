@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 interface TermLine {
   type: 'cmd' | 'out';
@@ -9,32 +9,38 @@ interface TermLine {
 
 const script: TermLine[] = [
   { type: 'cmd', text: 'whoami' },
-  { type: 'out', text: 'AI Engineer · Full-Stack Developer — Addis Ababa, ET', color: 'text-slate-500 dark:text-slate-400' },
+  { type: 'out', text: 'AI Engineer · Full-Stack Developer · Addis Ababa, ET', color: 'text-slate-500 dark:text-slate-400' },
   { type: 'cmd', text: 'ls ~/production' },
-  { type: 'out', text: 'drogabooking/  drogapulse/  pharmacy-agent/  hr-assistant/  dcs-wellness/', color: 'text-teal-600 dark:text-teal-300' },
-  { type: 'cmd', text: 'status --live' },
+  { type: 'out', text: 'drogabooking/  drogapulse/  eims/  pharmacy-agent/  hr-assistant/  dcs-wellness/', color: 'text-teal-600 dark:text-teal-300' },
+  { type: 'cmd', text: 'status --all' },
   { type: 'out', text: '● DrogaBooking · 82 endpoints · 600+ tests           [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
   { type: 'out', text: '● DrogaPulse · FB · IG · LinkedIn · X                [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
   { type: 'out', text: '● AI assistants · pharmacy · HR · ERP · supplier     [LIVE]', color: 'text-emerald-600 dark:text-emerald-400' },
+  { type: 'out', text: '◐ EIMS e-invoicing · Go · 360+ tests                 [BUILD]', color: 'text-amber-600 dark:text-amber-300' },
   { type: 'cmd', text: 'pip install habesha-names' },
   { type: 'out', text: 'Successfully installed habesha-names-0.2.0', color: 'text-slate-500 dark:text-slate-400' },
   { type: 'cmd', text: 'uptime --production' },
-  { type: 'out', text: '99.9% uptime · 20K+ users/month · 0 sleepless clients', color: 'text-slate-500 dark:text-slate-400' },
+  { type: 'out', text: '99.9% uptime · 1,800+ tests · 0 sleepless clients', color: 'text-slate-500 dark:text-slate-400' },
 ];
 
 const TYPE_SPEED_MS = 34;
 const OUT_DELAY_MS = 260;
 
-/** Terminal window that "types" a session once it scrolls into view. */
+/** Terminal window that "types" a session once it scrolls into view (all at once under reduced motion). */
 const Terminal: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, amount: 0.3 });
+  const reduceMotion = useReducedMotion();
 
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
 
   useEffect(() => {
     if (!inView || lineIdx >= script.length) return;
+    if (reduceMotion) {
+      setLineIdx(script.length);
+      return;
+    }
 
     const line = script[lineIdx];
     if (line.type === 'cmd') {
@@ -54,7 +60,7 @@ const Terminal: React.FC = () => {
       setCharIdx(0);
     }, OUT_DELAY_MS);
     return () => clearTimeout(t);
-  }, [inView, lineIdx, charIdx]);
+  }, [inView, lineIdx, charIdx, reduceMotion]);
 
   const done = lineIdx >= script.length;
 
@@ -80,7 +86,7 @@ const Terminal: React.FC = () => {
         </div>
 
         {/* Session */}
-        <div className="p-5 font-mono text-[13px] leading-relaxed min-h-[360px]">
+        <div className="p-5 font-mono text-[13px] leading-relaxed min-h-[380px]">
           {script.slice(0, lineIdx + 1).map((line, i) => {
             const isCurrent = i === lineIdx;
             if (line.type === 'cmd') {

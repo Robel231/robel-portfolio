@@ -8,21 +8,24 @@
 
   <!-- SEO -->
   <meta name="description"
-    content="Robel Shemeles Alemayhu — AI Engineer and Full-Stack Developer building production systems end to end: FastAPI and Go backends, React and Next.js web apps, Flutter mobile apps, AI assistants on n8n and Gemini, and SEO/GEO. Based in Addis Ababa, Ethiopia.">
+    content="Robel Shemeles Alemayhu, AI Engineer and Full-Stack Developer in Addis Ababa, Ethiopia. Builds and runs production systems end to end: FastAPI and Go backends, a Go e-invoicing platform, React and Next.js web apps, Flutter mobile apps, AI assistants on n8n and Gemini, and SEO/GEO.">
   <meta name="author" content="Robel Shemeles Alemayhu">
   <meta name="keywords"
-    content="AI Engineer, Full-Stack Developer, Python, FastAPI, Go, React, Next.js, Flutter, PostgreSQL, n8n, LLM, Gemini, SEO, GEO, Addis Ababa, Ethiopia">
+    content="AI Engineer, Full-Stack Developer, Python, FastAPI, Go, Golang, E-invoicing, React, Next.js, Flutter, PostgreSQL, n8n, LLM, Gemini, SEO, GEO, Addis Ababa, Ethiopia">
+  <link rel="canonical" href="https://robel-portfolio-ten.vercel.app/">
+  <meta name="theme-color" content="#020d0a">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://robel-portfolio-ten.vercel.app/">
   <meta property="og:title" content="Robel Shemeles | AI Engineer & Full-Stack Developer">
   <meta property="og:description"
-    content="AI Engineer and Full-Stack Developer shipping production systems — FastAPI and Go backends, Next.js and Flutter apps, AI assistants on n8n and Gemini, and SEO/GEO for AI-era search.">
+    content="AI Engineer and Full-Stack Developer shipping production systems: FastAPI and Go backends, Next.js and Flutter apps, AI assistants on n8n and Gemini, and SEO/GEO for AI-era search.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/141173346?v=4">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Robel Shemeles | AI Engineer & Full-Stack Developer">
   <meta name="twitter:description"
-    content="AI Engineer and Full-Stack Developer shipping production systems — FastAPI and Go backends, Next.js and Flutter apps, AI assistants on n8n and Gemini, and SEO/GEO for AI-era search.">
+    content="AI Engineer and Full-Stack Developer shipping production systems: FastAPI and Go backends, Next.js and Flutter apps, AI assistants on n8n and Gemini, and SEO/GEO for AI-era search.">
 
   <!-- Structured data (schema.org) -->
   <script type="application/ld+json">
@@ -31,15 +34,19 @@
     "@type": "Person",
     "name": "Robel Shemeles Alemayhu",
     "jobTitle": "AI Engineer & Full-Stack Developer",
+    "url": "https://robel-portfolio-ten.vercel.app/",
+    "image": "https://avatars.githubusercontent.com/u/141173346?v=4",
     "email": "mailto:robelshemeles4@gmail.com",
     "telephone": "+251703476023",
     "address": { "@type": "PostalAddress", "addressLocality": "Addis Ababa", "addressCountry": "ET" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Mettu University" },
     "worksFor": { "@type": "Organization", "name": "Droga Consultancy" },
-    "knowsAbout": ["Artificial Intelligence", "Python", "FastAPI", "Go", "React", "Next.js", "Flutter", "PostgreSQL", "n8n", "SEO", "Generative Engine Optimisation"],
+    "knowsAbout": ["Artificial Intelligence", "Python", "FastAPI", "Go", "E-invoicing", "React", "Next.js", "Flutter", "PostgreSQL", "n8n", "SEO", "Generative Engine Optimisation"],
     "sameAs": [
       "https://github.com/Robel231",
-      "https://www.linkedin.com/in/robel-shimeles-154b5a3b8"
+      "https://www.linkedin.com/in/robel-shimeles-154b5a3b8",
+      "https://t.me/Itsurboi_robel",
+      "https://pypi.org/project/habesha-names/"
     ]
   }
   </script>
@@ -62,240 +69,6 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            void: '#020d0a',
-            ink: '#06231b'
-          },
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace']
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 5.5rem;
-    }
-
-    body {
-      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    }
-
-    ::selection {
-      background: rgba(16, 185, 129, 0.45);
-      color: #fff;
-    }
-
-    /* Slim custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(100, 116, 139, 0.35);
-      border-radius: 8px;
-    }
-
-    .dark ::-webkit-scrollbar-thumb {
-      background: rgba(16, 185, 129, 0.35);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(16, 185, 129, 0.6);
-    }
-
-    /* Animated line grid backdrop: fine cells + bolder major lines, drifting diagonally */
-    .bg-grid {
-      background-image:
-        linear-gradient(to right, rgba(5, 150, 105, 0.10) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(5, 150, 105, 0.10) 1px, transparent 1px),
-        linear-gradient(to right, rgba(5, 150, 105, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(5, 150, 105, 0.05) 1px, transparent 1px);
-      background-size: 224px 224px, 224px 224px, 56px 56px, 56px 56px;
-      animation: grid-pan 60s linear infinite;
-      -webkit-mask-image: radial-gradient(ellipse 100% 85% at 50% 0%, black 30%, transparent 98%);
-      mask-image: radial-gradient(ellipse 100% 85% at 50% 0%, black 30%, transparent 98%);
-    }
-
-    .dark .bg-grid {
-      background-image:
-        linear-gradient(to right, rgba(52, 211, 153, 0.09) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(52, 211, 153, 0.09) 1px, transparent 1px),
-        linear-gradient(to right, rgba(52, 211, 153, 0.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(52, 211, 153, 0.045) 1px, transparent 1px);
-    }
-
-    @keyframes grid-pan {
-      from { background-position: 0 0; }
-      to { background-position: 224px 224px; }
-    }
-
-    /* Infinite marquee */
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @keyframes marquee-reverse {
-      from { transform: translateX(-50%); }
-      to { transform: translateX(0); }
-    }
-
-    .animate-marquee {
-      animation: marquee 40s linear infinite;
-    }
-
-    .animate-marquee-reverse {
-      animation: marquee-reverse 46s linear infinite;
-    }
-
-    .marquee-row:hover .animate-marquee,
-    .marquee-row:hover .animate-marquee-reverse {
-      animation-play-state: paused;
-    }
-
-    .marquee-mask {
-      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-    }
-
-    /* Blinking terminal cursor */
-    @keyframes blink {
-      0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0; }
-    }
-
-    .animate-blink {
-      animation: blink 1s step-end infinite;
-    }
-
-    /* Slow conic spin for the avatar ring */
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .animate-spin-slow {
-      animation: spin-slow 8s linear infinite;
-    }
-
-    /* Gentle float for decorative chips */
-    @keyframes float-y {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .animate-float {
-      animation: float-y 5s ease-in-out infinite;
-    }
-
-    /* Button shine sweep */
-    @keyframes shine {
-      from { transform: translateX(-150%) skewX(-20deg); }
-      to { transform: translateX(250%) skewX(-20deg); }
-    }
-
-    .btn-shine::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 40%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-      transform: translateX(-150%) skewX(-20deg);
-    }
-
-    .btn-shine:hover::after {
-      animation: shine 0.9s ease;
-    }
-
-    /* Spotlight cards: radial glow tracks the cursor via --mx / --my */
-    .spotlight-card {
-      position: relative;
-    }
-
-    .spotlight-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 50%), rgba(16, 185, 129, 0.14), transparent 45%);
-      pointer-events: none;
-    }
-
-    .spotlight-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Flow connector: data packet traveling down the line between sections */
-    @keyframes packet-flow {
-      0% { top: -30%; opacity: 0; }
-      12% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { top: 105%; opacity: 0; }
-    }
-
-    .animate-packet {
-      animation: packet-flow 2.6s ease-in infinite;
-    }
-
-    /* Slow drift for gradient text */
-    @keyframes gradient-x {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .animate-gradient-x {
-      background-size: 200% auto;
-      animation: gradient-x 6s ease-in-out infinite;
-    }
-
-    /* Pulsing ring on flow nodes */
-    @keyframes pulse-node {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
-      70%, 100% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    }
-
-    .animate-pulse-node {
-      animation: pulse-node 2.4s ease-out infinite;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      .animate-marquee,
-      .animate-marquee-reverse,
-      .animate-spin-slow,
-      .animate-float,
-      .animate-packet,
-      .animate-gradient-x,
-      .animate-pulse-node,
-      .bg-grid {
-        animation: none;
-      }
-
-      html {
-        scroll-behavior: auto;
-      }
-    }
-  </style>
 </head>
 
 <body class="bg-slate-50 dark:bg-[#020d0a]">

@@ -21,6 +21,14 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Escape closes the mobile menu
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setIsMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isMenuOpen]);
+
   // Highlight the section currently crossing the middle of the viewport
   useEffect(() => {
     const sections = ['home', ...navLinks.map((l) => l.id)]
@@ -50,7 +58,7 @@ const Header: React.FC = () => {
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#home" className="font-mono text-lg font-bold tracking-tight">
+          <a href="#home" aria-label="Robel Shemeles, back to top" className="font-mono text-lg font-bold tracking-tight">
             <span className="text-slate-900 dark:text-white">robel</span>
             <span className="bg-gradient-to-r from-emerald-500 to-lime-400 text-transparent bg-clip-text">.sh</span>
             <span className="text-emerald-500 dark:text-emerald-400 animate-blink">_</span>
@@ -64,6 +72,7 @@ const Header: React.FC = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  aria-current={isActive ? 'true' : undefined}
                   className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors ${
                     isActive
                       ? 'text-slate-900 dark:text-white'
@@ -97,8 +106,10 @@ const Header: React.FC = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-700 dark:text-slate-200 p-1"
-              aria-label="Toggle menu"
+              className="text-slate-700 dark:text-slate-200 p-1 rounded-md"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
@@ -115,6 +126,7 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              id="mobile-menu"
               className="md:hidden overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}

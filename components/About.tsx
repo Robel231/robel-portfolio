@@ -5,6 +5,7 @@ import { SparklesIcon } from './icons/SparklesIcon';
 import { LanguagesIcon } from './icons/LanguagesIcon';
 import SectionHeading from './SectionHeading';
 import GitHubStats from './GitHubStats';
+import { trackSpotlight } from '../utils/spotlight';
 
 const floatingChips = [
   { label: 'FastAPI', className: '-top-2 -left-4', delay: '0s' },
@@ -17,7 +18,7 @@ const infoCards = [
   {
     icon: GraduationCapIcon,
     title: 'Education',
-    lines: ['B.Sc. Information Technology', 'Mettu University · 2019 — 2023', 'CGPA 3.14'],
+    lines: ['B.Sc. Information Technology', 'Mettu University · 2019 to 2023', 'CGPA 3.14'],
   },
   {
     icon: SparklesIcon,
@@ -27,7 +28,7 @@ const infoCards = [
   {
     icon: LanguagesIcon,
     title: 'Languages',
-    lines: ['Amharic — Native', 'English — Professional Fluency'],
+    lines: ['Amharic (native)', 'English (full professional)'],
   },
 ];
 
@@ -98,10 +99,11 @@ const About: React.FC = () => {
               on n8n and Gemini, the Docker servers they run on, and <strong className="text-slate-800 dark:text-slate-200 font-medium">SEO / GEO</strong> for AI-era search.
             </p>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-10">
-              My work is in daily use across a group of companies — DrogaBooking, a room and staff booking platform with
+              My work is in daily use across a group of companies: DrogaBooking, a room and staff booking platform with
               600+ tests and an offline-first Android app; DrogaPulse, a social media SaaS; and AI assistants for pharmacy,
-              HR, ERP, and suppliers that only ever run permission-scoped queries. I also maintain habesha-names, an
-              open-source Python library on PyPI.
+              HR, ERP and suppliers that only ever run permission-scoped queries. I'm now building{' '}
+              <strong className="text-slate-800 dark:text-slate-200 font-medium">EIMS</strong>, a Go e-invoicing platform
+              for Ethiopia's Ministry of Revenue, and I maintain habesha-names, an open-source Python library on PyPI.
             </p>
 
             <motion.div
@@ -115,6 +117,7 @@ const About: React.FC = () => {
                 <motion.div
                   key={card.title}
                   variants={cardVariants}
+                  onMouseMove={trackSpotlight}
                   className="spotlight-card rounded-2xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-sm p-5"
                 >
                   <card.icon className="w-6 h-6 text-emerald-500 dark:text-emerald-300 mb-3" />

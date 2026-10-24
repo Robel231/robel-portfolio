@@ -1,18 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useInView, animate, Variants } from 'framer-motion';
+import { motion, useInView, useReducedMotion, animate, Variants } from 'framer-motion';
 import { GitHubIcon } from './icons/GitHubIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
+import { DocumentTextIcon } from './icons/DocumentTextIcon';
 import Terminal from './Terminal';
+import { trackSpotlight } from '../utils/spotlight';
 
 const roles = ['AI Engineer', 'Full-Stack Developer', 'Python · Go · Flutter', 'n8n & AI Automation', 'SEO / GEO Specialist'];
 
-/** Types, holds, deletes, and cycles through the given words. */
+/** Types, holds, deletes, and cycles through the given words (just the first one under reduced motion). */
 const useTypewriter = (words: string[]) => {
+  const reduceMotion = useReducedMotion();
   const [wordIdx, setWordIdx] = useState(0);
   const [text, setText] = useState('');
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
+    if (reduceMotion) return;
     const word = words[wordIdx % words.length];
     let delay = deleting ? 40 : 75;
     if (!deleting && text === word) delay = 2000;
@@ -29,39 +33,45 @@ const useTypewriter = (words: string[]) => {
       }
     }, delay);
     return () => clearTimeout(t);
-  }, [text, deleting, wordIdx, words]);
+  }, [text, deleting, wordIdx, words, reduceMotion]);
 
-  return text;
+  return reduceMotion ? words[0] : text;
 };
 
-const CountUp: React.FC<{ value: number; suffix: string }> = ({ value, suffix }) => {
+const CountUp: React.FC<{ value: number; suffix: string; decimals?: number }> = ({ value, suffix, decimals = 0 }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
+  const reduceMotion = useReducedMotion();
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
     if (!inView) return;
+    if (reduceMotion) {
+      setDisplay(value);
+      return;
+    }
     const controls = animate(0, value, {
       duration: 1.8,
       ease: [0.16, 1, 0.3, 1],
-      onUpdate: (v) => setDisplay(Math.round(v)),
+      onUpdate: setDisplay,
     });
     return () => controls.stop();
-  }, [inView, value]);
+  }, [inView, value, reduceMotion]);
 
   return (
-    <span ref={ref} className="font-display text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-500 to-lime-400 dark:from-emerald-400 dark:to-lime-300 text-transparent bg-clip-text">
-      {display}
+    <span ref={ref} className="font-display text-3xl md:text-4xl font-bold tabular-nums bg-gradient-to-r from-emerald-500 to-lime-400 dark:from-emerald-400 dark:to-lime-300 text-transparent bg-clip-text">
+      {display.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}
       {suffix}
     </span>
   );
 };
 
+// 1,800+ tests = DrogaBooking 600+, DrogaPulse ~400, EIMS 360+, Wuten ~430, SACCO 70 (each on its project card)
 const stats = [
   { value: 3, suffix: '+', label: 'Years Experience' },
-  { value: 20, suffix: 'K+', label: 'Monthly Users Served' },
-  { value: 500, suffix: '+', label: 'GitHub Commits' },
-  { value: 5, suffix: '+', label: 'Production Backends' },
+  { value: 5, suffix: '', label: 'Live AI Assistants' },
+  { value: 1800, suffix: '+', label: 'Automated Tests Written' },
+  { value: 99.9, suffix: '%', decimals: 1, label: 'Production Uptime' },
 ];
 
 const containerVariants: Variants = {
@@ -110,9 +120,10 @@ const Hero: React.FC = () => {
             </motion.div>
 
             <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0">
-              I build and run production systems end to end — FastAPI and Go backends, Next.js web
+              I build and run production systems end to end: FastAPI and Go backends, Next.js web
               apps, offline-first Flutter apps, and AI assistants on n8n and Gemini across booking,
-              pharmacy, HR, and ERP. All live, all in daily use.
+              pharmacy, HR and ERP, all in daily use. Now building a Go e-invoicing platform for
+              Ethiopia's Ministry of Revenue.
             </motion.p>
 
             <motion.div variants={itemVariants} className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-4">
@@ -126,10 +137,12 @@ const Hero: React.FC = () => {
                 </svg>
               </a>
               <a
-                href="#contact"
+                href="/Robel_Shemeles_CV.pdf"
+                download
                 className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/15 bg-white/60 dark:bg-white/5 px-7 py-3.5 font-semibold text-slate-800 dark:text-slate-200 hover:border-emerald-400 dark:hover:border-emerald-400/50 hover:-translate-y-0.5 transition-all backdrop-blur-sm"
               >
-                Get In Touch
+                <DocumentTextIcon className="w-4 h-4" />
+                Download CV
               </a>
               <div className="flex items-center gap-2">
                 <a
@@ -169,9 +182,10 @@ const Hero: React.FC = () => {
           {stats.map((stat) => (
             <div
               key={stat.label}
+              onMouseMove={trackSpotlight}
               className="spotlight-card rounded-2xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-sm px-4 py-6 text-center"
             >
-              <CountUp value={stat.value} suffix={stat.suffix} />
+              <CountUp value={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
               <p className="mt-1.5 text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium">{stat.label}</p>
             </div>
           ))}

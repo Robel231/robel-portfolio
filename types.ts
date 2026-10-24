@@ -28,5 +28,7 @@ export interface Project {
   liveLink?: string;
   repoLink?: string;
   imageUrl?: string;
+  /** Shown on a featured card without a live link, e.g. its status. */
+  note?: string;
   gradient?: string;
 }
