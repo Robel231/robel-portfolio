@@ -1,0 +1,5 @@
+# Search engines and AI assistants alike are welcome to read the whole site.
+User-agent: *
+Allow: /
+
+Sitemap: https://robel-portfolio-ten.vercel.app/sitemap.xml

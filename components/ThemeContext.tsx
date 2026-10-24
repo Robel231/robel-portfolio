@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useLayoutEffect, useState } from 'react';
 
 type Theme = 'dark' | 'light';
 
@@ -10,18 +10,18 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // index.html applies the saved theme before first paint, so start from what it chose
-  const [theme, setTheme] = useState<Theme>(() =>
-    document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-  );
+  // The prerendered HTML assumes dark. index.html applies the saved theme before first paint,
+  // so read it back once mounted; a layout effect corrects the toggle before anything is drawn.
+  const [theme, setTheme] = useState<Theme>('dark');
 
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-  }, [theme]);
+  useLayoutEffect(() => {
+    if (!document.documentElement.classList.contains('dark')) setTheme('light');
+  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
     try {
       localStorage.setItem('theme', newTheme);
     } catch {

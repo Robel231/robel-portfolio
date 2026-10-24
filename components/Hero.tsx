@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, useInView, useReducedMotion, animate, Variants } from 'framer-motion';
 import { GitHubIcon } from './icons/GitHubIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
@@ -16,7 +16,10 @@ const useTypewriter = (words: string[]) => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion) {
+      setText(words[0]);
+      return;
+    }
     const word = words[wordIdx % words.length];
     let delay = deleting ? 40 : 75;
     if (!deleting && text === word) delay = 2000;
@@ -35,14 +38,20 @@ const useTypewriter = (words: string[]) => {
     return () => clearTimeout(t);
   }, [text, deleting, wordIdx, words, reduceMotion]);
 
-  return reduceMotion ? words[0] : text;
+  return text;
 };
 
 const CountUp: React.FC<{ value: number; suffix: string; decimals?: number }> = ({ value, suffix, decimals = 0 }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
   const reduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(0);
+  // The prerendered HTML carries the final figure, so crawlers read "3+" rather than "0+";
+  // the counter rewinds to zero before the first paint and counts up once it scrolls into view.
+  const [display, setDisplay] = useState(value);
+
+  useLayoutEffect(() => {
+    if (!reduceMotion) setDisplay(0);
+  }, [reduceMotion]);
 
   useEffect(() => {
     if (!inView) return;
@@ -113,11 +122,14 @@ const Hero: React.FC = () => {
               </span>
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="mt-5 h-8 font-mono text-lg md:text-xl text-slate-700 dark:text-slate-300">
-              <span className="text-emerald-600 dark:text-emerald-400">&gt; </span>
-              {typed}
-              <span className="animate-blink text-emerald-500 dark:text-emerald-300">▊</span>
-            </motion.div>
+            <motion.p variants={itemVariants} className="mt-5 h-8 font-mono text-lg md:text-xl text-slate-700 dark:text-slate-300">
+              <span className="sr-only">{roles.join(', ')}</span>
+              <span aria-hidden="true">
+                <span className="text-emerald-600 dark:text-emerald-400">&gt; </span>
+                {typed}
+                <span className="animate-blink text-emerald-500 dark:text-emerald-300">▊</span>
+              </span>
+            </motion.p>
 
             <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0">
               I build and run production systems end to end: FastAPI and Go backends, Next.js web

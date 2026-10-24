@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
             <span className="text-slate-900 dark:text-white">robel</span>
             <span className="bg-gradient-to-r from-emerald-500 to-lime-400 text-transparent bg-clip-text">.sh</span>
           </a>
-          <p className="text-sm text-slate-500 dark:text-slate-500 text-center">
+          <p className="text-sm text-slate-500 dark:text-slate-500 text-center" suppressHydrationWarning>
             &copy; {new Date().getFullYear()} Robel Shemeles Alemayhu · Built with React, TypeScript, Tailwind &amp; Framer Motion
           </p>
           <button

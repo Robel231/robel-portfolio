@@ -1,0 +1,44 @@
+# Robel Shemeles Alemayhu
+
+> AI Engineer and Full-Stack Developer in Addis Ababa, Ethiopia, with 3+ years building and running production systems end to end: FastAPI and Go backends, React and Next.js web apps, Flutter mobile apps, PostgreSQL, Docker and CI/CD, and AI assistants on n8n and Gemini that are safe to put in front of real users. Open to full-time (remote friendly), freelance and consulting work.
+
+Contact: robelshemeles4@gmail.com, Telegram @Itsurboi_robel. Spelled "Robel Shimeles" on LinkedIn.
+
+## Profile
+
+- [Portfolio](https://robel-portfolio-ten.vercel.app/): projects, experience and skills
+- [CV (PDF)](https://robel-portfolio-ten.vercel.app/Robel_Shemeles_CV.pdf): the current CV
+- [GitHub](https://github.com/Robel231)
+- [LinkedIn](https://www.linkedin.com/in/robel-shimeles-154b5a3b8)
+
+## Experience
+
+- Droga Consultancy, AI Specialist and Full-Stack Developer (Nov 2025 to present). Builds and runs production systems end to end for a group of companies: the projects below, the production servers (Docker, Traefik, nginx, Cloudflare, CI/CD, backups) and the SEO/GEO for drogaconsulting.com.
+- Abronet PLC, System Administrator (Jan 2024 to Sep 2025). Kept the company's financial web platforms at 99.9% uptime, hardened server security and access control, automated maintenance with scripts.
+- Transsion Manufacturing, Software Test Engineer (Jan 2023 to Jan 2024). Found 100+ bugs before release and helped raise product quality by 15%.
+
+## Projects
+
+- EIMS e-invoicing platform (Go, in development for Ministry of Revenue accreditation): multi-tenant platform that registers invoices, receipts, credit/debit notes and cancellations with Ethiopia's Ministry of Revenue e-invoicing (EIMS) API. Go SDK with byte-exact SHA512withRSA request signing, REST service on PostgreSQL (chi, pgx) with per-tenant AES-256-GCM encryption, RBAC, TOTP, tamper-evident audit log, Amharic PDF invoices and a React console in English and Amharic. 360+ Go tests, CI with govulncheck.
+- DrogaBooking: meeting-room and staff booking platform used by several group companies. FastAPI and PostgreSQL backend (82 API endpoints, 600+ tests, database rules that prevent double booking), Next.js web app, offline-first Flutter Android app, per-company billing.
+- [DrogaPulse](https://drogapulse.drogatech.com): social media management SaaS that schedules and publishes to Facebook, Instagram, LinkedIn and X, with Gemini captions and reports, a Celery/Redis queue and a Capacitor Android app. Live since spring 2026.
+- AI assistants on n8n and Gemini, in daily use: a pharmacy chatbot that reads prescription photos, an HR performance assistant with role-based access behind JWT-checked FastAPI middleware, an Odoo ERP assistant, a supplier portal assistant and Amharic voice registration. The AI only runs approved, permission-scoped queries, never its own SQL.
+- Market intelligence dashboard and AI chatbot on regulator import data (Python ETL, FastAPI, React, PostgreSQL), and a Go API (chi, pgx, goose, JWT) for a group executive dashboard.
+- [habesha-names](https://pypi.org/project/habesha-names/): open-source Python library for Ethiopian and Eritrean name matching (Ge'ez to Latin, spelling variants, sound-alike matching), tested on 1,700+ name pairs.
+- Wuten: Flutter personal finance app that reads Ethiopian bank and telebirr SMS to track spending, with budgets, equb and an AI assistant.
+- [DCS Wellness](https://yene-jegna.drogapharma.rw): health platform with streaming AI diagnostics, Ethiopian food image recognition and 4 languages.
+- CardFlow (multi-tenant ID card SaaS) and a SACCO loan calculator (React, TypeScript, 70 tests).
+
+## Skills
+
+- Backend: Python, FastAPI, Go, Django, Node.js, PostgreSQL, MySQL, Redis, Celery, SQLAlchemy, Alembic, JWT/RBAC
+- Frontend and mobile: React, Next.js, TypeScript, Tailwind, Flutter, React Native (Expo), Capacitor
+- AI and automation: Gemini, OpenAI, Claude, LangChain, RAG, AI agents, n8n, Telegram bots, webhooks
+- DevOps: Docker, Linux, nginx, Traefik, Cloudflare, GitHub Actions CI/CD, VPS hosting
+- SEO/GEO: technical and on-page SEO, schema markup, Core Web Vitals, ranking in AI search
+- Languages: Amharic (native), English (full professional)
+
+## Education
+
+- B.Sc. Information Technology, Mettu University (Oct 2019 to Aug 2023)
+- English Access Microscholarship Program, U.S. Embassy Addis Ababa
