@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Inter', 'Noto Sans Ethiopic', Ebrima, Kefa, ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
@@ -62,6 +62,16 @@ body {
 @keyframes grid-pan {
   from { background-position: 0 0; }
   to { background-position: 224px 224px; }
+}
+
+/* Entrance for content above the fold: plain CSS, so it shows on first paint instead of waiting for JavaScript */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
 }
 
 /* Infinite marquee */
@@ -206,6 +216,7 @@ button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
 
+  .animate-fade-up,
   .animate-marquee,
   .animate-marquee-reverse,
   .animate-spin-slow,

@@ -10,11 +10,11 @@ if (!rootElement) {
 
 const app = (
   <React.StrictMode>
-    <App />
+    <App path={window.location.pathname} />
   </React.StrictMode>
 );
 
-// The production build prerenders the page into #root (scripts/prerender.js); the dev server doesn't
+// The production build prerenders every page into #root (scripts/prerender.js); the dev server doesn't
 if (rootElement.hasChildNodes()) {
   ReactDOM.hydrateRoot(rootElement, app);
 } else {

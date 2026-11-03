@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { motion, useInView, useReducedMotion, animate, Variants } from 'framer-motion';
+import { motion, useInView, useReducedMotion, animate } from 'framer-motion';
 import { GitHubIcon } from './icons/GitHubIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 import { DocumentTextIcon } from './icons/DocumentTextIcon';
@@ -83,15 +83,9 @@ const stats = [
   { value: 99.9, suffix: '%', decimals: 1, label: 'Production Uptime' },
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.14, delayChildren: 0.1 } },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
+// The intro staggers in with CSS rather than Framer Motion: the prerendered headline then paints
+// straight away instead of sitting invisible until the JavaScript bundle loads (it's the LCP element).
+const stagger = (i: number) => ({ animationDelay: `${(0.1 + i * 0.14).toFixed(2)}s` });
 
 const Hero: React.FC = () => {
   const typed = useTypewriter(roles);
@@ -101,8 +95,8 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-10 items-center">
           {/* Left: intro */}
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center lg:text-left">
-            <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
+          <div className="text-center lg:text-left">
+            <div className="animate-fade-up flex flex-wrap justify-center lg:justify-start gap-3 mb-6" style={stagger(0)}>
               <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:text-emerald-300">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -113,32 +107,32 @@ const Hero: React.FC = () => {
               <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-1.5 text-sm text-slate-600 dark:text-slate-300">
                 📍 Addis Ababa, Ethiopia
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1 variants={itemVariants} className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h1 style={stagger(1)} className="animate-fade-up font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white">
               Robel Shemeles
               <span className="animate-gradient-x block mt-3 bg-gradient-to-r from-emerald-500 via-teal-400 to-lime-400 dark:from-emerald-400 dark:via-teal-300 dark:to-lime-300 text-transparent bg-clip-text pb-1">
                 Alemayhu
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p variants={itemVariants} className="mt-5 h-8 font-mono text-lg md:text-xl text-slate-700 dark:text-slate-300">
+            <p style={stagger(2)} className="animate-fade-up mt-5 h-8 font-mono text-lg md:text-xl text-slate-700 dark:text-slate-300">
               <span className="sr-only">{roles.join(', ')}</span>
               <span aria-hidden="true">
                 <span className="text-emerald-600 dark:text-emerald-400">&gt; </span>
                 {typed}
                 <span className="animate-blink text-emerald-500 dark:text-emerald-300">▊</span>
               </span>
-            </motion.p>
+            </p>
 
-            <motion.p variants={itemVariants} className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0">
+            <p style={stagger(3)} className="animate-fade-up mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0">
               I build and run production systems end to end: FastAPI and Go backends, Next.js web
               apps, offline-first Flutter apps, and AI assistants on n8n and Gemini across booking,
               pharmacy, HR and ERP, all in daily use. Now building a Go e-invoicing platform for
               Ethiopia's Ministry of Revenue.
-            </motion.p>
+            </p>
 
-            <motion.div variants={itemVariants} className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-4">
+            <div style={stagger(4)} className="animate-fade-up mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-4">
               <a
                 href="#projects"
                 className="btn-shine relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-emerald-600/30 hover:shadow-xl hover:shadow-emerald-600/40 hover:-translate-y-0.5 transition-all"
@@ -176,8 +170,8 @@ const Hero: React.FC = () => {
                   <LinkedInIcon className="w-5 h-5" />
                 </a>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Right: live terminal */}
           <Terminal />

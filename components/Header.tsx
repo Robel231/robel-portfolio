@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
+import type { Lang } from '../types';
+import { uiText } from '../content/pages';
 
-const navLinks = [
-  { href: '#about', id: 'about', label: 'About' },
-  { href: '#skills', id: 'skills', label: 'Skills' },
-  { href: '#experience', id: 'experience', label: 'Experience' },
-  { href: '#projects', id: 'projects', label: 'Projects' },
-  { href: '#contact', id: 'contact', label: 'Contact' },
-];
+const sectionIds = ['about', 'skills', 'experience', 'projects', 'services', 'contact'] as const;
 
-const Header: React.FC = () => {
+const Header: React.FC<{ home: boolean; lang: Lang }> = ({ home, lang }) => {
+  const t = uiText[lang];
+  // Off the home page the section links lead back to it; every page has its own #contact
+  const navLinks = sectionIds.map((id) => ({ id, label: t.nav[id], href: home || id === 'contact' ? `#${id}` : `/#${id}` }));
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -31,7 +30,7 @@ const Header: React.FC = () => {
 
   // Highlight the section currently crossing the middle of the viewport
   useEffect(() => {
-    const sections = ['home', ...navLinks.map((l) => l.id)]
+    const sections = ['home', ...sectionIds]
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
 
@@ -58,14 +57,14 @@ const Header: React.FC = () => {
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#home" aria-label="Robel Shemeles, back to top" className="font-mono text-lg font-bold tracking-tight">
+          <a href={home ? '#home' : '/'} aria-label={home ? 'Robel Shemeles, back to top' : 'Robel Shemeles, home'} className="font-mono text-lg font-bold tracking-tight">
             <span className="text-slate-900 dark:text-white">robel</span>
             <span className="bg-gradient-to-r from-emerald-500 to-lime-400 text-transparent bg-clip-text">.sh</span>
             <span className="text-emerald-500 dark:text-emerald-400 animate-blink">_</span>
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -90,19 +89,27 @@ const Header: React.FC = () => {
                 </a>
               );
             })}
+            <a
+              href={t.switchTo.href}
+              lang={t.switchTo.lang}
+              hrefLang={t.switchTo.lang}
+              className="px-4 py-2 text-sm font-medium rounded-full text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+              {t.switchTo.label}
+            </a>
             <div className="ml-3 flex items-center gap-3">
               <ThemeToggle />
               <a
                 href="#contact"
                 className="btn-shine relative overflow-hidden rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transition-shadow"
               >
-                Hire Me
+                {t.nav.hire}
               </a>
             </div>
           </div>
 
           {/* Mobile controls */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-3">
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -127,7 +134,7 @@ const Header: React.FC = () => {
           {isMenuOpen && (
             <motion.div
               id="mobile-menu"
-              className="md:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -147,6 +154,14 @@ const Header: React.FC = () => {
                     {link.label}
                   </motion.a>
                 ))}
+                <a
+                  href={t.switchTo.href}
+                  lang={t.switchTo.lang}
+                  hrefLang={t.switchTo.lang}
+                  className="text-emerald-700 dark:text-emerald-300 text-center py-2.5 rounded-lg hover:bg-slate-900/5 dark:hover:bg-white/5 transition-colors"
+                >
+                  {t.switchTo.label}
+                </a>
               </div>
             </motion.div>
           )}

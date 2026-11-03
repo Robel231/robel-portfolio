@@ -9,8 +9,9 @@ export default {
         ink: '#06231b',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
+        // Ethiopic glyphs fall through to the system's own font (Android, Windows, Apple), so Amharic downloads nothing
+        sans: ['Inter', '"Noto Sans Ethiopic"', 'Ebrima', 'Kefa', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'Inter', '"Noto Sans Ethiopic"', 'Ebrima', 'Kefa', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
     },

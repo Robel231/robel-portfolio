@@ -12,10 +12,15 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ServicePage from './components/ServicePage';
+import { findRoute } from './seo';
 
-const App: React.FC = () => {
+/** One component for every page: the home page's sections, or a landing page from content/pages.ts. */
+const App: React.FC<{ path: string }> = ({ path }) => {
+  const route = findRoute(path);
   return (
     <ThemeProvider>
       <MotionConfig reducedMotion="user">
@@ -28,20 +33,28 @@ const App: React.FC = () => {
           </a>
           <Background />
           <ScrollProgress />
-          <Header />
+          <Header home={route.kind === 'home'} lang={route.lang} />
           <main id="main" className="relative z-10">
-            <Hero />
-            <TechMarquee />
-            <SectionConnector />
-            <About />
-            <SectionConnector />
-            <Skills />
-            <SectionConnector />
-            <Experience />
-            <SectionConnector />
-            <Projects />
-            <SectionConnector />
-            <Contact />
+            {route.kind === 'home' ? (
+              <>
+                <Hero />
+                <TechMarquee />
+                <SectionConnector />
+                <About />
+                <SectionConnector />
+                <Skills />
+                <SectionConnector />
+                <Experience />
+                <SectionConnector />
+                <Projects />
+                <SectionConnector />
+                <Services />
+                <SectionConnector />
+                <Contact />
+              </>
+            ) : (
+              <ServicePage page={route} />
+            )}
           </main>
           <Footer />
         </div>

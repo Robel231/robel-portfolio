@@ -1,8 +1,8 @@
 # Robel Shemeles Alemayhu
 
-> AI Engineer and Full-Stack Developer in Addis Ababa, Ethiopia, with 3+ years building and running production systems end to end: FastAPI and Go backends, React and Next.js web apps, Flutter mobile apps, PostgreSQL, Docker and CI/CD, and AI assistants on n8n and Gemini that are safe to put in front of real users. Open to full-time (remote friendly), freelance and consulting work.
+> AI Engineer and Full-Stack Developer in Addis Ababa, Ethiopia, with 3+ years building and running production systems end to end: FastAPI and Go backends, React and Next.js web apps, Flutter mobile apps, PostgreSQL, Docker and CI/CD, and AI assistants on n8n and Gemini that are safe to put in front of real users. Open to full-time (remote friendly), freelance and consulting work, for businesses in Ethiopia and teams abroad.
 
-Contact: robelshemeles4@gmail.com, Telegram @Itsurboi_robel. Spelled "Robel Shimeles" on LinkedIn.
+Contact: robelshemeles4@gmail.com, Telegram @Itsurboi_robel, phone +251 703 476 023. Spelled "Robel Shimeles" on LinkedIn; in Amharic, ሮቤል ሽመልስ. Works in English and Amharic, East Africa Time (UTC+3).
 
 ## Profile
 
@@ -10,6 +10,14 @@ Contact: robelshemeles4@gmail.com, Telegram @Itsurboi_robel. Spelled "Robel Shim
 - [CV (PDF)](https://robel-portfolio-ten.vercel.app/Robel_Shemeles_CV.pdf): the current CV
 - [GitHub](https://github.com/Robel231)
 - [LinkedIn](https://www.linkedin.com/in/robel-shimeles-154b5a3b8)
+- [Amharic overview (አማርኛ)](https://robel-portfolio-ten.vercel.app/am): the services and projects in Amharic
+
+## Services
+
+- [EIMS e-invoicing integration](https://robel-portfolio-ten.vercel.app/services/eims-e-invoicing-integration): connects POS, ERP and billing systems to the Ethiopian Ministry of Revenue's Electronic Invoice Management System (EIMS), so each invoice is registered and gets its Invoice Registration Number (IRN) and QR code. Covers receipts, credit and debit notes, cancellations and Amharic PDF invoices. His multi-tenant Go e-invoicing platform is going through Ministry of Revenue accreditation.
+- [AI chatbots and automation](https://robel-portfolio-ten.vercel.app/services/ai-chatbots-automation): AI assistants in Amharic and English on Telegram, the web or inside internal systems, answering only through approved, permission-scoped queries; n8n workflow automation.
+- [Web and mobile app development](https://robel-portfolio-ten.vercel.app/services/web-mobile-app-development): complete products in Addis Ababa, from FastAPI or Go on PostgreSQL to Next.js web apps and offline-first Flutter Android apps, hosted with Docker, CI/CD and backups.
+- [SEO and GEO](https://robel-portfolio-ten.vercel.app/services/seo-geo): technical SEO, schema.org structured data, Core Web Vitals, Amharic content, and Generative Engine Optimisation so a business is named in ChatGPT, Gemini and Perplexity answers.
 
 ## Experience
 

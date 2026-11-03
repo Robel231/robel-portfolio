@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
             variants={itemVariants}
             className="inline-block font-mono text-sm tracking-widest uppercase bg-gradient-to-r from-emerald-500 to-lime-400 dark:from-emerald-400 dark:to-lime-300 text-transparent bg-clip-text mb-4"
           >
-            05 · Contact
+            06 · Contact
           </motion.span>
 
           <motion.h2

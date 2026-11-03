@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { servicePages } from '../content/pages';
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Footer: React.FC = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <a href="#home" className="font-mono text-sm font-bold">
+          <a href="/" className="font-mono text-sm font-bold">
             <span className="text-slate-900 dark:text-white">robel</span>
             <span className="bg-gradient-to-r from-emerald-500 to-lime-400 text-transparent bg-clip-text">.sh</span>
           </a>
@@ -29,6 +30,16 @@ const Footer: React.FC = () => {
             </svg>
           </button>
         </div>
+        <nav aria-label="Services" className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+          {servicePages.map((page) => (
+            <a key={page.path} href={page.path} className="text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors">
+              {page.name}
+            </a>
+          ))}
+          <a href="/am" lang="am" hrefLang="am" className="text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors">
+            አማርኛ
+          </a>
+        </nav>
       </motion.div>
     </footer>
   );
