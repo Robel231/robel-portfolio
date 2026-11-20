@@ -35,7 +35,8 @@ const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; grad
     icon: ServerCogIcon,
     gradient: 'from-teal-500 to-cyan-500',
     skills: [
-      { name: 'Python' }, { name: 'FastAPI' }, { name: 'Go' }, { name: 'chi · pgx' }, { name: 'Django' }, { name: 'Node.js' },
+      { name: 'Python' }, { name: 'FastAPI' }, { name: 'Go' }, { name: 'chi · pgx' }, { name: 'PHP · Laravel' }, { name: 'Rust' },
+      { name: 'Django' }, { name: 'Node.js' },
       { name: 'PostgreSQL' }, { name: 'MySQL' }, { name: 'SQLAlchemy' }, { name: 'Alembic' }, { name: 'JWT / RBAC' },
     ],
   },
@@ -65,7 +66,7 @@ const skillData: (SkillCategory & { icon: React.FC<{ className?: string }>; grad
     icon: ServerCogIcon,
     gradient: 'from-rose-500 to-pink-500',
     skills: [
-      { name: 'Docker' }, { name: 'Linux' }, { name: 'nginx' }, { name: 'Traefik' }, { name: 'Cloudflare' },
+      { name: 'Docker' }, { name: 'Coolify' }, { name: 'Linux' }, { name: 'nginx' }, { name: 'Traefik' }, { name: 'Cloudflare' },
       { name: 'GitHub Actions' }, { name: 'RSA request signing' }, { name: 'AES-256-GCM' }, { name: 'TOTP' },
       { name: 'govulncheck' }, { name: 'pytest' }, { name: 'Vitest' }, { name: 'QA' },
     ],

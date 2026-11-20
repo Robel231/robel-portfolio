@@ -56,7 +56,7 @@ const eInvoicing: PageContent = {
   kind: 'service',
   path: '/services/eims-e-invoicing-integration',
   lang: 'en',
-  updated: '2026-11-03',
+  updated: '2026-11-20',
   title: 'EIMS E-Invoicing Integration in Ethiopia | Robel Shemeles',
   description:
     "Connect your POS, ERP or billing system to the Ministry of Revenue's EIMS: signed requests, IRN and QR codes, credit notes and Amharic PDF invoices.",
@@ -112,7 +112,7 @@ const eInvoicing: PageContent = {
       {
         title: 'Production systems I run today',
         metric: '82 endpoints · 600+ tests',
-        body: 'DrogaBooking and DrogaPulse run in daily use across a group of companies, on servers I operate with Docker, Traefik, Cloudflare and automated backups.',
+        body: 'DrogaBooking, DrogaPulse and the Droga Pharmacy online shop, whose stock syncs from Odoo within seconds, run in daily use across a group of companies, on servers I operate with Docker, Coolify, Traefik, Cloudflare and automated backups.',
       },
       {
         title: 'Financial platforms at 99.9% uptime',
@@ -181,7 +181,7 @@ const aiAutomation: PageContent = {
   kind: 'service',
   path: '/services/ai-chatbots-automation',
   lang: 'en',
-  updated: '2026-11-03',
+  updated: '2026-11-20',
   title: 'AI Chatbots & Automation in Ethiopia | Robel Shemeles',
   description:
     'AI assistants and Telegram bots for Ethiopian businesses in Amharic and English, built on n8n and Gemini and answering only from your own data.',
@@ -225,8 +225,8 @@ const aiAutomation: PageContent = {
     items: [
       {
         title: 'AI pharmacy assistant',
-        metric: '26 nodes · 5 agents',
-        body: 'Five specialist Gemini agents with shared memory: answers stock questions, reads prescription photos, guides patients to the right medicine and alerts the sales team about stock-outs.',
+        metric: '28% fewer tokens per answer',
+        body: 'Each message goes to the cheapest handler: fixed replies for hours, delivery and branches, a stock agent and a symptom agent that search a product API instead of writing SQL. It reads prescription photos and files restock requests that staff follow up.',
       },
       {
         title: 'HR performance assistant',
@@ -306,7 +306,7 @@ const webMobile: PageContent = {
   kind: 'service',
   path: '/services/web-mobile-app-development',
   lang: 'en',
-  updated: '2026-11-03',
+  updated: '2026-11-20',
   title: 'Web & Mobile App Developer in Addis Ababa | Robel Shemeles',
   description:
     'Full-stack developer in Addis Ababa: FastAPI and Go backends, Next.js web apps and offline-first Flutter Android apps, tested and in production.',
@@ -320,7 +320,7 @@ const webMobile: PageContent = {
   eyebrow: 'Service · Web & mobile',
   h1: 'Web and mobile app development in Addis Ababa',
   lead:
-    'I build complete products: the backend and database, the web app, the Android app and the servers they run on. FastAPI or Go on PostgreSQL behind, Next.js or React in the browser, Flutter on the phone. DrogaBooking and DrogaPulse are in daily use across a group of companies, and across my projects I have written 1,800+ automated tests.',
+    'I build complete products: the backend and database, the web app, the Android app and the servers they run on. FastAPI, Go or Laravel behind, Next.js or React in the browser, Flutter on the phone. DrogaBooking, DrogaPulse and the Droga Pharmacy online shop are in daily use across a group of companies, and across my projects I have written 1,800+ automated tests.',
   highlights: ['FastAPI · Go · PostgreSQL', 'Next.js and React', 'Offline-first Flutter', 'Amharic and the Ethiopian calendar', 'Docker, CI/CD and backups'],
   offer: {
     eyebrow: 'What I build',
@@ -340,7 +340,7 @@ const webMobile: PageContent = {
       },
       {
         title: 'Hosting and operations',
-        body: 'Docker deployments behind Traefik or nginx and Cloudflare, GitHub Actions CI/CD and automated backups, on a VPS or your own server.',
+        body: 'Docker deployments on Coolify, behind Traefik or nginx and Cloudflare, with GitHub Actions CI/CD and nightly off-site backups, on a VPS or your own server.',
       },
     ],
   },
@@ -348,6 +348,12 @@ const webMobile: PageContent = {
     eyebrow: 'Proof',
     heading: 'Products in production',
     items: [
+      {
+        title: 'Droga Pharmacy online shop',
+        metric: 'Odoo stock within seconds',
+        link: 'https://drogapharmacy.com',
+        body: 'Moved the shop (Laravel, React) from shared hosting to a VPS on Coolify with Docker, CI and nightly off-site backups, and rewrote its Odoo 19 stock sync, ending a month of stale stock and 1,775 products stuck out of stock.',
+      },
       {
         title: 'DrogaBooking',
         metric: '82 endpoints · 600+ tests',
@@ -545,7 +551,7 @@ const amharic: PageContent = {
   kind: 'profile',
   path: '/am',
   lang: 'am',
-  updated: '2026-11-03',
+  updated: '2026-11-20',
   title: 'ሮቤል ሽመልስ | የAI መሐንዲስ እና ሶፍትዌር ገንቢ፣ አዲስ አበባ',
   description:
     'በአዲስ አበባ የሚገኝ የAI መሐንዲስ እና ሶፍትዌር ገንቢ፦ የEIMS ኤሌክትሮኒክ ደረሰኝ ውህደት፣ በአማርኛ የሚመልሱ AI ቻትቦቶች እና የቴሌግራም ቦቶች፣ ዌብሳይት እና የሞባይል መተግበሪያዎች፣ SEO።',
@@ -607,7 +613,7 @@ const amharic: PageContent = {
       },
       {
         title: 'የፋርማሲ AI ረዳት',
-        metric: '26 nodes · 5 agents',
+        metric: 'Stock + symptom agents',
         body: 'የመድኃኒት ክምችት ጥያቄዎችን የሚመልስ፣ የሐኪም ማዘዣ ፎቶዎችን የሚያነብ እና ክምችት ሲያልቅ የሽያጭ ቡድኑን የሚያሳውቅ ቻትቦት።',
       },
       {

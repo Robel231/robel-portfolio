@@ -94,12 +94,13 @@ const About: React.FC = () => {
               3+ years shipping production systems at the intersection of intelligent automation and scalable software.
             </p>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
-              I build and run systems end to end: <strong className="text-slate-800 dark:text-slate-200 font-medium">FastAPI and Go backends</strong>,
+              I build and run systems end to end: <strong className="text-slate-800 dark:text-slate-200 font-medium">FastAPI, Go and Laravel backends</strong>,
               React and Next.js web apps, <strong className="text-slate-800 dark:text-slate-200 font-medium">Flutter mobile apps</strong>, AI assistants
               on n8n and Gemini, the Docker servers they run on, and <strong className="text-slate-800 dark:text-slate-200 font-medium">SEO / GEO</strong> for AI-era search.
             </p>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-10">
-              My work is in daily use across a group of companies: DrogaBooking, a room and staff booking platform with
+              My work is in daily use across a group of companies: the Droga Pharmacy online shop, which I moved to its own
+              server and connected to Odoo so stock updates within seconds; DrogaBooking, a room and staff booking platform with
               600+ tests and an offline-first Android app; DrogaPulse, a social media SaaS; and AI assistants for pharmacy,
               HR, ERP and suppliers that only ever run permission-scoped queries. I'm now building{' '}
               <strong className="text-slate-800 dark:text-slate-200 font-medium">EIMS</strong>, a Go e-invoicing platform

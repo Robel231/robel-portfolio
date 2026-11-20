@@ -8,14 +8,14 @@ import { contact, contentPages, servicePages } from './content/pages';
 export const SITE_URL = 'https://robel-portfolio-ten.vercel.app';
 
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
-const CV_UPDATED = '2026-10-17';
-const LLMS_UPDATED = '2026-11-03';
+const CV_UPDATED = '2026-11-20';
+const LLMS_UPDATED = '2026-11-20';
 
 export const home: HomeRoute = {
   kind: 'home',
   path: '/',
   lang: 'en',
-  updated: '2026-11-03',
+  updated: '2026-11-20',
   title: 'Robel Shemeles | AI & Full-Stack Developer in Addis Ababa',
   description:
     'AI Engineer and Full-Stack Developer in Addis Ababa: EIMS e-invoicing, Amharic AI chatbots, Go and FastAPI backends, Next.js and Flutter apps, SEO and GEO.',
@@ -62,8 +62,9 @@ const person = {
   knowsLanguage: ['en', 'am'],
   knowsAbout: [
     'Artificial Intelligence', 'AI Agents', 'Amharic language technology', 'Python', 'FastAPI', 'Go',
-    'Electronic invoicing (EIMS)', 'React', 'Next.js', 'Flutter', 'PostgreSQL', 'n8n', 'Gemini',
-    'Telegram bots', 'Docker', 'SEO', 'Generative Engine Optimisation',
+    'PHP', 'Laravel', 'Rust', 'Electronic invoicing (EIMS)', 'Odoo ERP integration', 'React', 'Next.js',
+    'Flutter', 'PostgreSQL', 'n8n', 'Gemini', 'Telegram bots', 'Docker', 'Coolify', 'SEO',
+    'Generative Engine Optimisation',
   ],
   makesOffer: servicePages.map((page) => ({
     '@type': 'Offer',

@@ -10,14 +10,15 @@ const experienceData: ExperienceItem[] = [
     role: 'AI Specialist & Full-Stack Developer',
     company: 'Droga Consultancy',
     period: 'Nov 2025 to Present',
-    tags: ['FastAPI', 'Go', 'PostgreSQL', 'Next.js', 'Flutter', 'n8n', 'Gemini', 'Docker', 'SEO/GEO'],
+    tags: ['FastAPI', 'Go', 'Laravel', 'PostgreSQL', 'Next.js', 'Flutter', 'n8n', 'Gemini', 'Docker', 'Coolify', 'SEO/GEO'],
     description: [
+      'Moved the Droga Pharmacy online shop (drogapharmacy.com; Laravel, Filament, React) from shared hosting to a VPS on Coolify, with Docker images, CI builds and nightly off-site backups. Rewrote its Odoo 19 ERP stock sync so shelf stock reaches the shop within seconds, ending a month of stale stock and 1,775 products stuck out of stock, and rebuilt its AI assistant (n8n + Gemini) on a product search API instead of model-written SQL: each message goes to the cheapest handler (fixed replies, a stock agent, a symptom agent), with staff pages for restock requests and chat logs. Tokens per answer down 28%.',
       'Built DrogaBooking end to end, the room and staff booking platform for the group companies: FastAPI + PostgreSQL backend (82 endpoints, 600+ tests), Next.js web app, offline-first Flutter Android app, email/SMS notifications and GitHub Actions deploys.',
       'Built DrogaPulse, a social media SaaS that schedules and publishes to Facebook, Instagram, LinkedIn and X, with Gemini captions and reports, a Celery/Redis queue and a Capacitor Android app.',
       'Building EIMS, a multi-tenant Go e-invoicing platform going through Ministry of Revenue accreditation: a Go SDK with byte-exact SHA512withRSA request signing, a REST service on PostgreSQL with per-tenant AES-256-GCM encryption, RBAC, TOTP and a tamper-evident audit log, Amharic PDF invoices and a bilingual React console. 360+ Go tests, CI with govulncheck.',
-      'Shipped live AI assistants on n8n + Gemini: a pharmacy chatbot that reads prescription photos, an HR performance assistant with role-based data access behind JWT-checked FastAPI middleware, an Odoo ERP assistant, a supplier portal assistant and Amharic voice registration. The AI only runs approved, permission-scoped queries, never its own SQL.',
+      'Shipped more live AI assistants on n8n + Gemini: an HR performance assistant with role-based data access behind JWT-checked FastAPI middleware, an Odoo ERP assistant, a supplier portal assistant and Amharic voice registration. The AI only runs approved, permission-scoped queries, never its own SQL.',
       'Built a market intelligence dashboard and AI chatbot on regulator import data (Python ETL, FastAPI, React, PostgreSQL), and wrote the Go API (chi, pgx, goose, JWT) for a group executive dashboard.',
-      'Run the production servers (Docker, Traefik, nginx, Cloudflare, CI/CD, backups) and the SEO & GEO for drogaconsulting.com, so the brand surfaces in AI search (ChatGPT, Perplexity, Gemini).',
+      'Run the production servers (Docker, Coolify, Traefik, nginx, Cloudflare, CI/CD, backups) and the SEO & GEO for drogaconsulting.com, so the brand surfaces in AI search (ChatGPT, Perplexity, Gemini).',
     ],
   },
   {

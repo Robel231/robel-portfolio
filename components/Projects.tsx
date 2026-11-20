@@ -8,6 +8,17 @@ import { trackSpotlight } from '../utils/spotlight';
 
 const featuredProjects: Project[] = [
   {
+    title: 'Droga Pharmacy: Online Shop',
+    description:
+      "Online pharmacy for Droga Pharmacy's branches. I moved it from shared hosting to a VPS on Coolify (Docker images, CI builds, nightly off-site backups), rewrote the Odoo 19 ERP stock sync so shelf stock reaches the shop within seconds, ending a month of stale stock and 1,775 products stuck out of stock, and rebuilt its AI assistant on a product search API instead of SQL the model wrote itself.",
+    technologies: ['Laravel', 'Filament', 'React', 'Odoo 19', 'n8n', 'Gemini', 'Docker', 'Coolify'],
+    category: 'Full-Stack',
+    featured: true,
+    metric: 'Live · Odoo stock within seconds',
+    liveLink: 'https://drogapharmacy.com',
+    gradient: 'from-emerald-500/80 via-teal-500/70 to-sky-500/80',
+  },
+  {
     title: 'EIMS E-Invoicing Platform',
     description:
       "Multi-tenant platform that registers invoices, receipts, credit and debit notes and cancellations with Ethiopia's Ministry of Revenue e-invoicing (EIMS) API. A Go SDK signs every request byte-exact with SHA512withRSA, the REST service on PostgreSQL keeps each tenant's data under its own AES-256-GCM key behind RBAC, TOTP and a tamper-evident audit log, and businesses get A4 and thermal PDF invoices in Amharic and a React console in English and Amharic.",
@@ -45,13 +56,22 @@ const projectData: Project[] = [
   {
     title: 'habesha-names',
     description:
-      "Open-source Python library for Ethiopian and Eritrean names in KYC, remittance and HR systems: Ge'ez to Latin transliteration and back, spelling variants, patronymic-aware parsing and sound-alike matching. Zero dependencies, fully typed, ~50K matches per second.",
+      "Open-source Python library for Ethiopian and Eritrean names in KYC, remittance and HR systems: Ge'ez to Latin transliteration and back, spelling variants, patronymic-aware parsing and sound-alike matching. An index searches and de-duplicates whole name lists exactly, with a CSV command line. Zero dependencies, fully typed, ~50K matches per second.",
     technologies: ['Python', 'PyPI', 'Typed', 'GitHub Actions'],
     category: 'Open Source',
     metric: '1,700+ test name pairs',
     liveLink: 'https://pypi.org/project/habesha-names/',
     repoLink: 'https://github.com/Robel231/habesha-names',
     gradient: 'from-lime-600/70 to-emerald-600/70',
+  },
+  {
+    title: 'AnchorBirr Payment Gateway',
+    description:
+      "Payment gateway in Rust that lets merchants accept telebirr, M-Pesa Ethiopia and CBE Birr through one API: payments and refunds on a double-entry ledger, idempotent requests, signed webhooks and a hosted checkout in Amharic and English. An AI review reads each merchant's licence, TIN and ID and flags mismatches for staff. In development.",
+    technologies: ['Rust', 'axum', 'sqlx', 'PostgreSQL', 'React', 'Claude'],
+    category: 'Full-Stack',
+    metric: 'Rust · double-entry ledger',
+    gradient: 'from-amber-600/70 to-emerald-600/70',
   },
   {
     title: 'DCS Wellness: Health Platform',
@@ -66,11 +86,11 @@ const projectData: Project[] = [
   {
     title: 'AI Pharmacy Assistant',
     description:
-      '26-node n8n agentic workflow with 5 specialist Gemini agents and shared memory. It answers stock questions, reads prescription photos, guides patients to the right medicine and alerts the sales team about stock-outs.',
-    technologies: ['n8n', 'Gemini', 'AI Agents', 'Vision'],
+      "The pharmacy shop's chat on n8n and Gemini, where each message goes to the cheapest handler that can answer it: hours, delivery and branches get a fixed reply with no AI call, product questions go to a stock agent and symptoms to a symptom agent, both searching a product API instead of writing SQL. It reads prescription photos and files restock requests that staff follow up from the admin.",
+    technologies: ['n8n', 'Gemini', 'AI Agents', 'Vision', 'Laravel API'],
     category: 'AI & Agents',
-    metric: '26 nodes · 5 agents',
-    imageUrl: '/ai-pharmacy-assistance.png',
+    metric: '28% fewer tokens per answer',
+    gradient: 'from-emerald-600/70 to-teal-600/70',
   },
   {
     title: 'Wuten Finance App',
@@ -366,7 +386,13 @@ const Projects: React.FC = () => {
         {/* Featured */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {featuredProjects.map((project, i) => (
-            <FeaturedCard key={project.title} project={project} index={i} wide={i === 0} />
+            <FeaturedCard
+              key={project.title}
+              project={project}
+              index={i}
+              // The first card spans the row, and so does the last one when it would otherwise sit alone.
+              wide={i === 0 || (i === featuredProjects.length - 1 && featuredProjects.length % 2 === 0)}
+            />
           ))}
         </div>
 

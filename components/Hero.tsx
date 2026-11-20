@@ -127,8 +127,8 @@ const Hero: React.FC = () => {
 
             <p style={stagger(3)} className="animate-fade-up mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0">
               I build and run production systems end to end: FastAPI and Go backends, Next.js web
-              apps, offline-first Flutter apps, and AI assistants on n8n and Gemini across booking,
-              pharmacy, HR and ERP, all in daily use. Now building a Go e-invoicing platform for
+              apps, offline-first Flutter apps, and AI assistants on n8n and Gemini across an online
+              pharmacy, booking, HR and ERP, all in daily use. Now building a Go e-invoicing platform for
               Ethiopia's Ministry of Revenue.
             </p>
 
